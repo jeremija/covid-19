@@ -13,9 +13,9 @@ const colors = {
 }
 
 const colorByType = {
-  confirmed: colors.warning,
-  deaths: colors.danger,
-  recovered: colors.success,
+  confirmed: colors.danger,
+  deaths: '#000000',
+  recovered: colors.primary,
 }
 
 function CreateChart(data: Data) {
@@ -24,10 +24,6 @@ function CreateChart(data: Data) {
 
   const labels = Object.keys(data.total)
 
-  // const types: Array<'confirmed' | 'deaths' | 'recovered'> = [
-  //   'confirmed', 'deaths', 'recovered',
-  // ]
-  // const datasets = calculateCummulativeTimeSeries(data.regions)
   const datasets = [] as Chart.ChartDataSets[]
 
   const chart = new Chart(ctx, {
@@ -40,6 +36,10 @@ function CreateChart(data: Data) {
 
   return {canvas, chart}
 }
+
+const types: Array<'confirmed' | 'deaths' | 'recovered'> = [
+  'confirmed', 'deaths', 'recovered',
+]
 
 function calculateCummulativeTimeSeries(data: Record<string, Region>) {
   const dates = Object.keys(data).reduce((obj, key) => {
@@ -59,10 +59,6 @@ function calculateCummulativeTimeSeries(data: Record<string, Region>) {
     return obj
   }, {} as Record<string, DayStat>)
 
-  const types: Array<'confirmed' | 'deaths' | 'recovered'> = [
-    'confirmed', 'deaths', 'recovered',
-  ]
-
   return types.map(type => {
     return {
       label: type,
@@ -71,6 +67,29 @@ function calculateCummulativeTimeSeries(data: Record<string, Region>) {
       data: Object.keys(dates).map(key => dates[key][type]),
     }
   })
+}
+
+function calculateDistinctTimeSeries(data: Record<string, Region>) {
+  const d: Chart.ChartDataSets[] = []
+
+  Object.keys(data).forEach(key => {
+    const region = data[key]
+
+    types.forEach(type => {
+      const data = Object
+      .keys(region.dates)
+      .map(date => region.dates[date][type])
+
+      d.push({
+        label: `${key} (${type})`,
+        fill: false,
+        borderColor: colorByType[type],
+        data,
+      })
+    })
+  })
+
+  return d
 }
 
 function Form(data: Data, chart: Chart) {
@@ -92,6 +111,7 @@ function Form(data: Data, chart: Chart) {
     checkbox.checked = true
     checkbox.addEventListener('change', e => {
       selections[key] = !selections[key]
+      update()
     })
     checkboxes.push(checkbox)
     const label = document.createElement('label')
@@ -112,11 +132,7 @@ function Form(data: Data, chart: Chart) {
   const buttons = document.createElement('div')
   form.appendChild(buttons)
 
-  const submit = document.createElement('button')
-  submit.type = 'submit'
-  submit.textContent = 'Update'
-  form.addEventListener('submit', e => {
-    e.preventDefault()
+  function update() {
     const regions = Object
     .keys(data.regions)
     .filter(key => selections[key])
@@ -124,10 +140,13 @@ function Form(data: Data, chart: Chart) {
       obj[key] = data.regions[key]
       return obj
     }, {} as Record<string, Region>)
-    chart.data.datasets = calculateCummulativeTimeSeries(regions)
+    if (cummulativeCheckbox.checked) {
+      chart.data.datasets = calculateCummulativeTimeSeries(regions)
+    } else {
+      chart.data.datasets = calculateDistinctTimeSeries(regions)
+    }
     chart.update()
-  })
-  buttons.appendChild(submit)
+  }
 
   const selectAllButton = document.createElement('button')
   selectAllButton.textContent = 'Select All'
@@ -135,6 +154,7 @@ function Form(data: Data, chart: Chart) {
     e.preventDefault()
     selections = {...allSelections}
     checkboxes.forEach(c => c.checked = true)
+    update()
   })
 
   const unselectAllButton = document.createElement('button')
@@ -143,11 +163,28 @@ function Form(data: Data, chart: Chart) {
     e.preventDefault()
     selections = {...noSelections}
     checkboxes.forEach(c => c.checked = false)
+    update()
   })
 
   buttons.className = 'buttons'
   buttons.appendChild(selectAllButton)
   buttons.appendChild(unselectAllButton)
+
+  const cummulative = document.createElement('div')
+  cummulative.className = 'cummulative'
+  const cummulativeCheckbox = document.createElement('input')
+  cummulativeCheckbox.id = 'cummulative'
+  cummulativeCheckbox.type = 'checkbox'
+  cummulativeCheckbox.checked = true
+  cummulativeCheckbox.addEventListener('change', () => {
+    update()
+  })
+  cummulative.appendChild(cummulativeCheckbox)
+  const label = document.createElement('label')
+  label.setAttribute('for', 'cummulative')
+  label.textContent = 'Cummulative'
+  cummulative.appendChild(label)
+  buttons.appendChild(cummulative)
 
   return form
 }

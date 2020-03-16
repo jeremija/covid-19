@@ -3,16 +3,33 @@ body
   font-size: 12px
 
 .countries
-  display: flex
-  flex-direction: row
-  flex: 0 0 300px
-  flex-wrap: wrap
+  column-count: 10
+
+  @media(max-width: 1000px)
+    column-count: 8
+
+  @media(max-width: 800px)
+    column-count: 6
+
+  @media(max-width: 600px)
+    column-count: 4
+
+  // flex-direction: row
+  @media(max-width: 400px)
+    column-count: 2
+  // flex-direction: row
+  // flex: 0 0 300px
+  // flex-wrap: wrap
 
   .country
-    flex: 0 0 200px
+    // width: 200px
+    // flex: 0 0 200px
     overflow-x: hidden
     white-space: nowrap
     text-overflow: ellipsis
 
   .buttons
     flex: 0 0 100%
+
+.cummulative
+  display: inline-block
