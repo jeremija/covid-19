@@ -1,18 +1,21 @@
 const fs = require('fs')
 const path = require('path')
+const papaparse = require('papaparse')
 
 const srcDir = path.join(__dirname, '..', 'data', 'csse_covid_19_data', 'csse_covid_19_time_series')
-const outFile = path.join(__dirname, '..', 'build', 'data.json')
+const outDir = path.join(__dirname, '..', 'build', 'data')
+fs.mkdirSync(outDir, {recursive: true})
+const outFile = path.join(outDir, 'index.js')
 
 const confirmedCSV =
-  fs.readFileSync(path.join(srcDir, 'time_series_19-covid-Confirmed.csv'), 'utf8').trim().split('\n')
+  fs.readFileSync(path.join(srcDir, 'time_series_19-covid-Confirmed.csv'), 'utf8')
 const deathsCSV =
-  fs.readFileSync(path.join(srcDir, 'time_series_19-covid-Deaths.csv'), 'utf8').trim().split('\n')
+  fs.readFileSync(path.join(srcDir, 'time_series_19-covid-Deaths.csv'), 'utf8')
 const recoveredCSV =
-  fs.readFileSync(path.join(srcDir, 'time_series_19-covid-Recovered.csv'), 'utf8').trim().split('\n')
+  fs.readFileSync(path.join(srcDir, 'time_series_19-covid-Recovered.csv'), 'utf8')
 
 function parseHeader(line) {
-  return line.split(',').map(field => {
+  return line.map(field => {
     const date = new Date(field)
     if (isNaN(date.getTime())) {
       return {name: field, type: 'string'}
@@ -26,11 +29,12 @@ function parseHeader(line) {
 
 const getKey = item => [item['Country/Region'], item['Province/State']].filter(key => key).join('_')
 
-function parseCSV(lines) {
+function parseCSV(csv) {
+  const lines = papaparse.parse(csv).data
   const header = parseHeader(lines[0])
 
-  return lines.slice(1).map(row => {
-    const values = row.split(',').slice(0, header.length)
+  return lines.slice(1).map((row, i) => {
+    let values = row.map(value => value.trim())
 
     return values.reduce((obj, value, index) => {
       const field = header[index]
@@ -56,7 +60,12 @@ function mergeAllData(type, parsed, allData) {
       const cDates = regions.dates[date] = regions.dates[date] || {
         date,
       }
-      cDates[type] = dates[date]
+      const count = dates[date]
+      if (count < 0) {
+        console.warn('count is negative: "%s" date: %s, type: %s, count: %s',
+          key, date, type, count)
+      }
+      cDates[type] = count
 
       const total = allData.total[date] = allData.total[date] || {
         date,
@@ -64,7 +73,7 @@ function mergeAllData(type, parsed, allData) {
         deaths: 0,
         recovered: 0,
       }
-      total[type] += dates[date]
+      total[type] += count
     })
   })
   return allData
@@ -75,7 +84,7 @@ const deaths = parseCSV(deathsCSV)
 const recovered = parseCSV(recoveredCSV)
 
 const allData = {
-  date: new Date().toISOString(),
+  date: new Date().toISOString().substring(0, 10),
   total: {},
   regions: {},
 }
@@ -83,4 +92,7 @@ mergeAllData('confirmed', confirmed, allData)
 mergeAllData('deaths', deaths, allData)
 mergeAllData('recovered', recovered, allData)
 
-fs.writeFileSync(outFile, "export const data" + JSON.stringify(allData))
+fs.writeFileSync(outFile, "module.exports.data = " + JSON.stringify(allData, null, "  "))
+
+const types = fs.readFileSync(path.join(__dirname, '..', 'types', 'data.d.ts'), 'utf8')
+fs.writeFileSync(path.join(__dirname, '..', 'build', 'data', 'index.d.ts'), types)

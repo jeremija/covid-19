@@ -3,7 +3,7 @@ const fs = require('fs')
 const path = require('path')
 const data = require('../data')
 
-const outDir = path.join(__dirname, '..', 'build')
+const outDir = path.join(__dirname, '..', 'build', 'web')
 fs.mkdirSync(outDir, {recursive: true})
 
 const files = process.argv.slice(2)
