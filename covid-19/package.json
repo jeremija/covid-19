@@ -1,11 +1,10 @@
 {
   "scripts": {
-    "build": "npm-run-all preprocess css:build ts:build js:build js:minify html:build",
+    "build": "npm-run-all preprocess css:build ts:build js:build html:build",
     "watch": "npm-run-all preprocess css:build ts:build --parallel *:watch",
     "ts:build": "tsc --project .",
     "ts:watch": "tsc --watch --preserveWatchOutput --project .",
-    "js:build": "browserify lib/index.js -o build/index.js",
-    "js:minify": "minify build/index.js -o build/web/index.js",
+    "js:build": "browserify lib/index.js -o build/web/index.js",
     "js:watch": "watchify -v --debug lib/index.js -o build/web/index.js",
     "html:build": "node scripts/render.js views/index.html",
     "html:watch": "watch 'npm run html:build' views/",
