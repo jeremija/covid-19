@@ -6,10 +6,6 @@ export interface DayStat {
 }
 
 export interface Region {
-  'Country/Region': string
-  'Province/State': string
-  Lat: string
-  Long: string
   dates: Record<string, DayStat>
 }
 

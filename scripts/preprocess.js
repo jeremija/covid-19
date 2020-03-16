@@ -27,7 +27,8 @@ function parseHeader(line) {
   })
 }
 
-const getKey = item => [item['Country/Region'], item['Province/State']].filter(key => key).join('_')
+// const getKey = item => [item['Country/Region'], item['Province/State']].filter(key => key).join('_')
+const getKey = item => item['Country/Region']
 
 function parseCSV(csv) {
   const lines = papaparse.parse(csv).data
@@ -53,8 +54,8 @@ function parseCSV(csv) {
 function mergeAllData(type, parsed, allData) {
   parsed.forEach(item => {
     const key = getKey(item)
-    const {dates, ...newItem} = item
-    const regions = allData.regions[key] = allData.regions[key] || newItem
+    const {dates} = item
+    const regions = allData.regions[key] = allData.regions[key] || {}
     Object.keys(dates).forEach(date => {
       regions.dates = regions.dates || {}
       const cDates = regions.dates[date] = regions.dates[date] || {
@@ -65,7 +66,8 @@ function mergeAllData(type, parsed, allData) {
         console.warn('count is negative: "%s" date: %s, type: %s, count: %s',
           key, date, type, count)
       }
-      cDates[type] = count
+      cDates[type] = cDates[type] || 0
+      cDates[type] += count
 
       const total = allData.total[date] = allData.total[date] || {
         date,
