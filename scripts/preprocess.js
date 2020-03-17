@@ -27,8 +27,8 @@ function parseHeader(line) {
   })
 }
 
-// const getKey = item => [item['Country/Region'], item['Province/State']].filter(key => key).join('_')
-const getKey = item => item['Country/Region']
+const getKey = item => [item['Country/Region'], item['Province/State']].filter(key => key).join(', ')
+// const getKey = item => item['Country/Region']
 
 function parseCSV(csv) {
   const lines = papaparse.parse(csv).data
@@ -54,8 +54,8 @@ function parseCSV(csv) {
 function mergeAllData(type, parsed, allData) {
   parsed.forEach(item => {
     const key = getKey(item)
-    const {dates} = item
-    const regions = allData.regions[key] = allData.regions[key] || {}
+    const {dates, ...newItem} = item
+    const regions = allData.regions[key] = allData.regions[key] || newItem
     Object.keys(dates).forEach(date => {
       regions.dates = regions.dates || {}
       const cDates = regions.dates[date] = regions.dates[date] || {

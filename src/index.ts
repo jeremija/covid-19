@@ -1,4 +1,4 @@
-import { data, Data, DayStat, Region } from '../build/data'
+import { data as _data, Data, DayStat, Region } from '../build/data'
 import { Chart } from 'chart.js'
 
 const app = document.getElementById('app')!
@@ -32,6 +32,11 @@ function CreateChart(data: Data) {
       labels,
       datasets,
     },
+    options: {
+      // tooltips: {
+      //   mode: 'x',
+      // },
+    },
   })
 
   return {canvas, chart}
@@ -63,6 +68,7 @@ function calculateCummulativeTimeSeries(data: Record<string, Region>) {
     return {
       label: type,
       fill: false,
+      backgroundColor: colorByType[type],
       borderColor: colorByType[type],
       data: Object.keys(dates).map(key => dates[key][type]),
     }
@@ -83,6 +89,7 @@ function calculateDistinctTimeSeries(data: Record<string, Region>) {
       d.push({
         label: `${key} (${type})`,
         fill: false,
+        backgroundColor: colorByType[type],
         borderColor: colorByType[type],
         data,
       })
@@ -92,42 +99,103 @@ function calculateDistinctTimeSeries(data: Record<string, Region>) {
   return d
 }
 
-function Form(data: Data, chart: Chart) {
-  const allSelections: Record<string, boolean> = {}
-  const noSelections: Record<string, boolean> = {}
+function mergeByCountries(data: Data): Data {
+  const result: Data = {
+    total: data.total,
+    regions: {},
+    date: data.date,
+  }
+
   Object.keys(data.regions).forEach(key => {
-    allSelections[key] = true
-    noSelections[key] = false
+    const region = data.regions[key]
+    const country = region['Country/Region']
+    const resultRegion = result.regions[country] = result.regions[country] || {
+      'Country/Region': country,
+      'Province/State': '',
+      dates: {},
+      Lat: 0,
+      Lng: 0,
+    }
+    Object.keys(region.dates).forEach(date => {
+      const dayStat = region.dates[date]
+      const resultDayStat = resultRegion.dates[date] = resultRegion.dates[date] || {
+        confirmed: 0,
+        date: date,
+        deaths: 0,
+        recovered: 0,
+      }
+      resultDayStat.confirmed += dayStat.confirmed
+      resultDayStat.deaths += dayStat.deaths
+      resultDayStat.recovered += dayStat.recovered
+    })
   })
-  let selections = {...allSelections}
+
+  return result
+}
+
+function CheckboxAndLabel(params: {
+  id: string
+  className: string
+  label: string
+  checked: boolean
+  onChange: (e: Event) => void
+}) {
+  const node = document.createElement('div')
+  node.className = params.className
+  const checkbox = document.createElement('input')
+  checkbox.id = params.id
+  checkbox.type = 'checkbox'
+  checkbox.checked = params.checked
+  checkbox.addEventListener('change', params.onChange)
+  const label = document.createElement('label')
+  label.setAttribute('for', params.id)
+  label.textContent = params.label
+  node.appendChild(checkbox)
+  node.appendChild(label)
+  return {node, checkbox}
+}
+
+function Form(allData: Data, chart: Chart) {
+  const dataByCountry = mergeByCountries(allData)
+  let data = dataByCountry
+  let selections: Record<string, boolean> = getSelections(true)
+
+  function getSelections(selected: boolean) {
+    return Object.keys(data.regions).reduce((obj, key) => {
+      obj[key] = selected
+      return obj
+    }, {} as typeof selections)
+  }
 
   const checkboxes: HTMLInputElement[] = []
-  const divs = Object.keys(data.regions).sort().map(key => {
-    const div = document.createElement('div')
-    div.className = 'country'
-    const checkbox = document.createElement('input')
-    checkbox.id = key
-    checkbox.type = 'checkbox'
-    checkbox.checked = true
-    checkbox.addEventListener('change', e => {
-      selections[key] = !selections[key]
-      update()
-    })
-    checkboxes.push(checkbox)
-    const label = document.createElement('label')
-    label.setAttribute('for', key)
-    label.textContent = key
-    div.appendChild(checkbox)
-    div.appendChild(label)
-    return div
-  })
-
   const form = document.createElement('form')
+  form.autocomplete = 'off'
   const countries = document.createElement('div')
   countries.className = 'countries'
-  divs.forEach(div => {
-    countries.appendChild(div)
-  })
+
+  function rebuildCheckboxes() {
+    checkboxes.length = 0
+    countries.innerHTML = ''
+    const divs = Object.keys(data.regions).sort().map(key => {
+      console.log(key, selections[key])
+      const { node, checkbox } = CheckboxAndLabel({
+        id: key,
+        className: 'country',
+        label: key,
+        checked: selections[key],
+        onChange: e => {
+          selections[key] = !selections[key]
+          update()
+        }
+      })
+      checkboxes.push(checkbox)
+      return node
+    })
+
+    divs.forEach(div => countries.appendChild(div))
+  }
+  rebuildCheckboxes()
+
   form.appendChild(countries)
   const buttons = document.createElement('div')
   form.appendChild(buttons)
@@ -140,7 +208,7 @@ function Form(data: Data, chart: Chart) {
       obj[key] = data.regions[key]
       return obj
     }, {} as Record<string, Region>)
-    if (cummulativeCheckbox.checked) {
+    if (cummulative.checkbox.checked) {
       chart.data.datasets = calculateCummulativeTimeSeries(regions)
     } else {
       chart.data.datasets = calculateDistinctTimeSeries(regions)
@@ -152,7 +220,7 @@ function Form(data: Data, chart: Chart) {
   selectAllButton.textContent = 'Select All'
   selectAllButton.addEventListener('click', e => {
     e.preventDefault()
-    selections = {...allSelections}
+    selections = getSelections(true)
     checkboxes.forEach(c => c.checked = true)
     update()
   })
@@ -161,7 +229,7 @@ function Form(data: Data, chart: Chart) {
   unselectAllButton.textContent = 'Select None'
   unselectAllButton.addEventListener('click', e => {
     e.preventDefault()
-    selections = {...noSelections}
+    selections = getSelections(false)
     checkboxes.forEach(c => c.checked = false)
     update()
   })
@@ -170,27 +238,36 @@ function Form(data: Data, chart: Chart) {
   buttons.appendChild(selectAllButton)
   buttons.appendChild(unselectAllButton)
 
-  const cummulative = document.createElement('div')
-  cummulative.className = 'cummulative'
-  const cummulativeCheckbox = document.createElement('input')
-  cummulativeCheckbox.id = 'cummulative'
-  cummulativeCheckbox.type = 'checkbox'
-  cummulativeCheckbox.checked = true
-  cummulativeCheckbox.addEventListener('change', () => {
-    update()
+  const cummulative = CheckboxAndLabel({
+    id: 'cummulative',
+    className: 'cummulative',
+    onChange: () => update(),
+    checked: true,
+    label: 'Cummulative'
   })
-  cummulative.appendChild(cummulativeCheckbox)
-  const label = document.createElement('label')
-  label.setAttribute('for', 'cummulative')
-  label.textContent = 'Cummulative'
-  cummulative.appendChild(label)
-  buttons.appendChild(cummulative)
+  buttons.appendChild(cummulative.node)
+  const perCountry = CheckboxAndLabel({
+    id: 'merge',
+    className: 'Per Country',
+    onChange: e => {
+      if ((e.target as HTMLInputElement).checked) {
+        data = dataByCountry
+      } else {
+        data = allData
+      }
+      rebuildCheckboxes()
+      update()
+    },
+    checked: true,
+    label: 'Group by Country',
+  })
+  buttons.appendChild(perCountry.node)
 
   return form
 }
 
-const {chart, canvas} = CreateChart(data)
+const {chart, canvas} = CreateChart(_data)
 app.appendChild(canvas)
-app.appendChild(Form(data, chart))
-chart.data.datasets = calculateCummulativeTimeSeries(data.regions)
+app.appendChild(Form(_data, chart))
+chart.data.datasets = calculateCummulativeTimeSeries(_data.regions)
 chart.update()
