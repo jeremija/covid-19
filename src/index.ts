@@ -1,7 +1,18 @@
 import { data as _data, Data, DayStat, Region } from '../build/data'
 import { Chart } from 'chart.js'
+import palette from 'coloring-palette'
 
 const app = document.getElementById('app')!
+
+function getColors(color: string): string[] {
+  const p = palette(color, 'hex');
+  const colors = (Object.keys(p) as Array<keyof typeof p>)
+  .filter(k => !isNaN(k as unknown as number))
+  .slice(0, 5)
+  .reverse()
+  .map(k => p[k].color as string)
+  return colors
+}
 
 const colors = {
   primary:   '#0d6efd',
@@ -10,12 +21,29 @@ const colors = {
   info:      '#17a2b8',
   warning:   '#ffc107',
   danger:    '#dc3545',
+  dark:      '#333333',
+}
+
+const palettes = {
+  primary:   getColors(colors.primary),
+  secondary: getColors(colors.secondary),
+  success:   getColors(colors.success),
+  info:      getColors(colors.info),
+  warning:   getColors(colors.warning),
+  danger:    getColors(colors.danger),
+  dark:      getColors(colors.dark),
 }
 
 const colorByType = {
   confirmed: colors.danger,
-  deaths: '#000000',
+  deaths: colors.dark,
   recovered: colors.primary,
+}
+
+const paletteByType = {
+  confirmed: palettes.danger,
+  deaths: palettes.dark,
+  recovered: palettes.primary,
 }
 
 function CreateChart(data: Data) {
@@ -78,7 +106,7 @@ function calculateCummulativeTimeSeries(data: Record<string, Region>) {
 function calculateDistinctTimeSeries(data: Record<string, Region>) {
   const d: Chart.ChartDataSets[] = []
 
-  Object.keys(data).forEach(key => {
+  Object.keys(data).forEach((key, index) => {
     const region = data[key]
 
     types.forEach(type => {
@@ -86,11 +114,14 @@ function calculateDistinctTimeSeries(data: Record<string, Region>) {
       .keys(region.dates)
       .map(date => region.dates[date][type])
 
+      const colors = paletteByType[type]
+      const color = colors[index % colors.length]
+
       d.push({
         label: `${key} (${type})`,
         fill: false,
-        backgroundColor: colorByType[type],
-        borderColor: colorByType[type],
+        backgroundColor: color,
+        borderColor: color,
         data,
       })
     })
@@ -177,7 +208,6 @@ function Form(allData: Data, chart: Chart) {
     checkboxes.length = 0
     countries.innerHTML = ''
     const divs = Object.keys(data.regions).sort().map(key => {
-      console.log(key, selections[key])
       const { node, checkbox } = CheckboxAndLabel({
         id: key,
         className: 'country',
