@@ -86,7 +86,7 @@ const deaths = parseCSV(deathsCSV)
 const recovered = parseCSV(recoveredCSV)
 
 const allData = {
-  date: new Date().toISOString().substring(0, 10),
+  date: new Date().toISOString(),
   total: {},
   regions: {},
 }

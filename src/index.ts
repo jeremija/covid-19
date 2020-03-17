@@ -263,6 +263,16 @@ function Form(allData: Data, chart: Chart) {
   })
   buttons.appendChild(perCountry.node)
 
+  const footer = document.createElement('footer')
+  footer.innerHTML = `<footer>
+    Generated from John Hopkins'
+    <a href="https://github.com/CSSEGISandData/COVID-19"> COVID-19 dataset</a>
+    at ${new Date(allData.date).toUTCString()}
+    by <a href="https://github.com/jeremija">jeremija</a>
+  </footer>`
+
+  form.appendChild(footer)
+
   return form
 }
 
