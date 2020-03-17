@@ -27,12 +27,13 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - run: |
-        git submodule update --init
+        git submodule update --init --remote
         npm install
         npm run build
       working-directory: covid-19
       env:
         CI: true
+      name: Build
     - name: Deploy to gh-pages
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
