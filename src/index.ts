@@ -355,6 +355,7 @@ function Form(allData: Data, chart: Chart) {
     }
     updateSelectedStats(regions)
     chart.update()
+    location.hash = serialize()
   }
 
   const selectAllButton = document.createElement('button')
@@ -452,6 +453,51 @@ function Form(allData: Data, chart: Chart) {
 
   form.appendChild(footer)
 
+
+  interface Serialized {
+    checkboxes: Record<string, boolean>
+    cummulative: boolean
+    patientZero: boolean
+    perCountry: boolean
+    sort: Sort
+  }
+
+  function serialize(): string {
+    const values: Serialized = {
+      checkboxes: checkboxes.filter(c => c.checked).reduce((obj, c) => {
+        obj[c.id] = true
+        return obj
+      }, {} as Record<string, boolean>),
+      cummulative: cummulative.checkbox.checked,
+      patientZero: patientZero.checkbox.checked,
+      perCountry: perCountry.checkbox.checked,
+      sort: sort,
+    }
+    return encodeURIComponent(JSON.stringify(values))
+  }
+
+  function deserialize() {
+    try {
+      const values: Serialized = JSON.parse(decodeURIComponent(location.hash.slice(1)))
+      checkboxes.forEach(checkbox => {
+        if (values.checkboxes[checkbox.id]) {
+          selections[checkbox.id] = true
+          checkbox.checked = true
+        } else {
+          selections[checkbox.id] = false
+          checkbox.checked = false
+        }
+      })
+      cummulative.checkbox.checked = values.cummulative
+      cummulative.checkbox.checked = values.cummulative
+      patientZero.checkbox.checked = values.patientZero
+      perCountry.checkbox.checked = values.perCountry
+    } catch (err) {
+      console.error('Error deserializing:', err)
+    }
+  }
+
+  deserialize()
   update()
 
   return form
