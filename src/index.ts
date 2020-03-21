@@ -72,7 +72,7 @@ function CreateChart(data: Data) {
 
 type StatType = 'confirmed' | 'deaths' | 'recovered'
 const types: Array<StatType> = [
-  'confirmed', 'deaths', 'recovered',
+  'confirmed', 'recovered', 'deaths',
 ]
 
 function calculateCummulativeTimeSeries(data: Record<string, Region>) {
@@ -129,6 +129,19 @@ function calculateDistinctTimeSeries(data: Record<string, Region>) {
   })
 
   return d
+}
+
+function calculateTotal(data: Record<string, Region>, lastDate: string) {
+  return Object.keys(data).reduce((obj, key) => {
+    types.forEach(type => {
+      obj[type] += data[key].dates[lastDate][type]
+    })
+    return obj
+  }, {
+    confirmed: 0,
+    recovered: 0,
+    deaths: 0,
+  })
 }
 
 function mergeByCountries(data: Data): Data {
@@ -213,13 +226,44 @@ function Form(allData: Data, chart: Chart) {
 
   const checkboxes: HTMLInputElement[] = []
   const form = document.createElement('form')
+
+  const selectedStats = (function() {
+    const node = document.createElement('div')
+    node.className = 'total-stats'
+
+    const values = types.reduce((obj, type) => {
+      const stat = document.createElement('div')
+      stat.style.color = 'white'
+      stat.style.backgroundColor = colorByType[type]
+      const label = document.createElement('span')
+      label.textContent = type[0].toUpperCase() + type.substring(1) + ':'
+      const value = document.createElement('span')
+      stat.appendChild(label)
+      stat.appendChild(value)
+      node.appendChild(stat)
+      obj[type] = value
+      return obj
+    }, {} as Record<StatType, HTMLSpanElement>)
+
+    return { node, values }
+  })()
+  form.appendChild(selectedStats.node)
+
+  function updateSelectedStats(data: Record<string, Region>) {
+    const stats = calculateTotal(data, lastDate)
+    selectedStats.values.confirmed.textContent = stats.confirmed.toLocaleString()
+    selectedStats.values.recovered.textContent = stats.recovered.toLocaleString()
+    selectedStats.values.deaths.textContent = stats.deaths.toLocaleString()
+  }
+
   form.autocomplete = 'off'
   const countries = document.createElement('div')
   countries.className = 'countries'
 
-  const lastDate = (function() {
+  const [lastDate, secondToLastDate] = (function() {
     const allDates = Object.keys(allData.total).sort()
-    return allDates[allDates.length - 1]
+    const size = allDates.length
+    return [allDates[size - 1], allDates[size - 2]]
   }())
 
   type Sort = 'name' | StatType
@@ -276,6 +320,7 @@ function Form(allData: Data, chart: Chart) {
     } else {
       chart.data.datasets = calculateDistinctTimeSeries(regions)
     }
+    updateSelectedStats(regions)
     chart.update()
   }
 
@@ -355,11 +400,13 @@ function Form(allData: Data, chart: Chart) {
 
   form.appendChild(footer)
 
+  update()
+
   return form
 }
 
 const {chart, canvas} = CreateChart(_data)
 app.appendChild(canvas)
 app.appendChild(Form(_data, chart))
-chart.data.datasets = calculateCummulativeTimeSeries(_data.regions)
-chart.update()
+// chart.data.datasets = calculateCummulativeTimeSeries(_data.regions)
+// chart.update()
