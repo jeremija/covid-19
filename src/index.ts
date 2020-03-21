@@ -157,16 +157,28 @@ function calculatePatientZeroTimeSeries(data: Record<string, Region>) {
   return { datasets, labels }
 }
 
-function calculateTotal(data: Record<string, Region>, lastDate: string) {
+function calculateTotal(
+  data: Record<string, Region>,
+  lastDate: string,
+  secondToLastDate: string,
+) {
   return Object.keys(data).reduce((obj, key) => {
     types.forEach(type => {
-      obj[type] += data[key].dates[lastDate][type]
+      obj.last[type] += data[key].dates[lastDate][type]
+      obj.secondToLast[type] += data[key].dates[secondToLastDate][type]
     })
     return obj
   }, {
-    confirmed: 0,
-    recovered: 0,
-    deaths: 0,
+    last: {
+      confirmed: 0,
+      recovered: 0,
+      deaths: 0,
+    },
+    secondToLast: {
+      confirmed: 0,
+      recovered: 0,
+      deaths: 0,
+    }
   })
 }
 
@@ -258,29 +270,42 @@ function Form(allData: Data, chart: Chart) {
     const node = document.createElement('div')
     node.className = 'total-stats'
 
-    const values = types.reduce((obj, type) => {
+    function createStat(name: string, fg: string, bg: string) {
       const stat = document.createElement('div')
-      stat.style.color = 'white'
-      stat.style.backgroundColor = colorByType[type]
+      stat.style.color = fg
+      stat.style.backgroundColor = bg
       const label = document.createElement('span')
-      label.textContent = type[0].toUpperCase() + type.substring(1) + ':'
+      label.textContent = name
       const value = document.createElement('span')
       stat.appendChild(label)
       stat.appendChild(value)
       node.appendChild(stat)
-      obj[type] = value
+      return value
+    }
+
+    const values = types.reduce((obj, type) => {
+      obj[type] = createStat(
+        type[0].toUpperCase() + type.substring(1) + ':',
+        'white',
+        colorByType[type],
+      )
       return obj
-    }, {} as Record<StatType, HTMLSpanElement>)
+    }, {} as Record<StatType | 'growth', HTMLSpanElement>)
 
     return { node, values }
   })()
   form.appendChild(selectedStats.node)
 
+  function calcGrowth(last: number, secondToLast: number) {
+    return ' (+' + ((last/secondToLast - 1) * 100).toFixed(0) + '%)'
+  }
+
   function updateSelectedStats(data: Record<string, Region>) {
-    const stats = calculateTotal(data, lastDate)
-    selectedStats.values.confirmed.textContent = stats.confirmed.toLocaleString()
-    selectedStats.values.recovered.textContent = stats.recovered.toLocaleString()
-    selectedStats.values.deaths.textContent = stats.deaths.toLocaleString()
+    const stats = calculateTotal(data, lastDate, secondToLastDate)
+    selectedStats.values.confirmed.textContent = stats.last.confirmed.toLocaleString() + calcGrowth(stats.last.confirmed, stats.secondToLast.confirmed)
+    selectedStats.values.recovered.textContent = stats.last.recovered.toLocaleString() + calcGrowth(stats.last.recovered, stats.secondToLast.recovered)
+
+    selectedStats.values.deaths.textContent = stats.last.deaths.toLocaleString() + calcGrowth(stats.last.deaths, stats.secondToLast.deaths)
   }
 
   form.autocomplete = 'off'
