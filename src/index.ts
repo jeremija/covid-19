@@ -76,9 +76,12 @@ const types: Array<StatType> = [
 ]
 
 function calculateCummulativeTimeSeries(data: Record<string, Region>) {
+  let labels: string[] = []
+
   const dates = Object.keys(data).reduce((obj, key) => {
     const region = data[key]
-    Object.keys(region.dates).forEach(date => {
+    const keys = labels = Object.keys(region.dates)
+    keys.forEach(date => {
       const dayStat = obj[date] = obj[date] || {
         date,
         confirmed: 0,
@@ -93,7 +96,7 @@ function calculateCummulativeTimeSeries(data: Record<string, Region>) {
     return obj
   }, {} as Record<string, DayStat>)
 
-  return types.map(type => {
+  const datasets = types.map(type => {
     return {
       label: type,
       fill: false,
@@ -102,24 +105,29 @@ function calculateCummulativeTimeSeries(data: Record<string, Region>) {
       data: Object.keys(dates).map(key => dates[key][type]),
     }
   })
+
+  return { datasets, labels }
 }
 
 function calculateDistinctTimeSeries(data: Record<string, Region>) {
-  const d: Chart.ChartDataSets[] = []
+  const datasets: Array<Chart.ChartDataSets & { statType: StatType }> = []
+
+  let labels: string[] = []
 
   Object.keys(data).forEach((key, index) => {
     const region = data[key]
 
+    let offset = Infinity
     types.forEach(type => {
-      const data = Object
-      .keys(region.dates)
-      .map(date => region.dates[date][type])
+      labels = Object.keys(region.dates)
+      const data = labels.map(date => region.dates[date][type])
 
       const colors = paletteByType[type]
       const color = colors[index % colors.length]
 
-      d.push({
+      datasets.push({
         label: `${key} (${type})`,
+        statType: type,
         fill: false,
         backgroundColor: color,
         borderColor: color,
@@ -128,7 +136,25 @@ function calculateDistinctTimeSeries(data: Record<string, Region>) {
     })
   })
 
-  return d
+  return { datasets, labels }
+}
+
+function calculatePatientZeroTimeSeries(data: Record<string, Region>) {
+  let { datasets, labels } = calculateDistinctTimeSeries(data)
+
+  const maxSize = datasets
+  .filter(d => d.statType === 'confirmed')
+  .reduce((maxSize, d) => {
+    const data = d.data as number[]
+    const patientZeroIndex = data.findIndex(value => value > 0)
+    d.data = data.slice(patientZeroIndex)
+    return Math.min(maxSize, d.data.length)
+  }, Infinity)
+
+  datasets.forEach(d => d.data = d.data!.slice(0, maxSize))
+  labels = labels.slice(0, maxSize).map((_, i) => String(i + 1))
+
+  return { datasets, labels }
 }
 
 function calculateTotal(data: Record<string, Region>, lastDate: string) {
@@ -194,6 +220,7 @@ function CheckboxAndLabel(params: {
   className: string
   label: string
   checked: boolean
+  title?: string
   onChange: (e: Event) => void
 }) {
   const node = document.createElement('div')
@@ -206,7 +233,7 @@ function CheckboxAndLabel(params: {
   const label = document.createElement('label')
   label.setAttribute('for', params.id)
   label.textContent = params.label
-  label.title = params.label
+  label.title = params.title || params.label
   node.appendChild(checkbox)
   node.appendChild(label)
   return {node, checkbox}
@@ -316,9 +343,15 @@ function Form(allData: Data, chart: Chart) {
       return obj
     }, {} as Record<string, Region>)
     if (cummulative.checkbox.checked) {
-      chart.data.datasets = calculateCummulativeTimeSeries(regions)
+      const { datasets, labels } = calculateCummulativeTimeSeries(regions)
+      chart.data.labels = labels
+      chart.data.datasets = datasets
     } else {
-      chart.data.datasets = calculateDistinctTimeSeries(regions)
+      const { datasets, labels } = patientZero.checkbox.checked
+      ? calculatePatientZeroTimeSeries(regions)
+      : calculateDistinctTimeSeries(regions)
+      chart.data.labels = labels
+      chart.data.datasets = datasets
     }
     updateSelectedStats(regions)
     chart.update()
@@ -349,11 +382,30 @@ function Form(allData: Data, chart: Chart) {
   const cummulative = CheckboxAndLabel({
     id: 'cummulative',
     className: 'cummulative',
-    onChange: () => update(),
+    onChange: e => {
+      const checked = (e.target as HTMLInputElement).checked
+      if (checked) {
+        patientZero.checkbox.checked = false
+      }
+      patientZero.checkbox.disabled = checked
+      update()
+    },
     checked: true,
     label: 'Cummulative'
   })
   buttons.appendChild(cummulative.node)
+  const patientZero = CheckboxAndLabel({
+    id: 'patientZero',
+    className: 'patientZero',
+    onChange: e => {
+      update()
+    },
+    checked: false,
+    label: 'Patient Zero',
+    title: 'Compare cases in countries from first case',
+  })
+  patientZero.checkbox.disabled = true
+  buttons.appendChild(patientZero.node)
   const perCountry = CheckboxAndLabel({
     id: 'merge',
     className: 'Per Country',
