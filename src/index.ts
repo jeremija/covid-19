@@ -448,7 +448,7 @@ function Form(allData: Data, chart: Chart) {
     Generated from John Hopkins'
     <a href="https://github.com/CSSEGISandData/COVID-19"> COVID-19 dataset</a>
     at ${new Date(allData.date).toUTCString()}
-    by <a href="https://github.com/jeremija">jeremija</a>
+    by <a href="https://github.com/jeremija">jeremija</a>/<a href="https://github.com/jeremija/covid-19">covid-19</a>
   </footer>`
 
   form.appendChild(footer)
