@@ -480,6 +480,7 @@ function Form(allData: Data, chart: Chart) {
     perCountry: boolean
     sort: Sort
     scale: Scale,
+    hiddenCharts: number[]
   }
 
   function serialize(): string {
@@ -493,13 +494,22 @@ function Form(allData: Data, chart: Chart) {
       perCountry: perCountry.checkbox.checked,
       sort: sort,
       scale: scale,
+      hiddenCharts: chart.data.datasets!
+      .map((d, i) => ({ hidden: chart.getDatasetMeta(i).hidden, index: i }))
+      .filter(item => item.hidden)
+      .map(item => item.index),
     }
     return encodeURIComponent(JSON.stringify(values))
   }
 
+  let hiddenCharts: number[] = []
   function deserialize() {
+    const hash = location.hash.substring(1)
+    if (hash.length === 0) {
+      return
+    }
     try {
-      const values: Serialized = JSON.parse(decodeURIComponent(location.hash.slice(1)))
+      const values: Serialized = JSON.parse(decodeURIComponent(hash))
       checkboxes.forEach(checkbox => {
         if (values.checkboxes[checkbox.id]) {
           selections[checkbox.id] = true
@@ -524,13 +534,30 @@ function Form(allData: Data, chart: Chart) {
         option.selected = option.value === sort
       })
       rebuildCheckboxes()
+      hiddenCharts = values.hiddenCharts || hiddenCharts
     } catch (err) {
       console.error('Error deserializing:', err)
     }
   }
 
+  const onLegendClick = chart.options.legend!.onClick!
+  chart.options.legend!.onClick = function (e, legendLabelItem) {
+    onLegendClick.call(this, e, legendLabelItem)
+    location.hash = serialize()
+  }
+
   deserialize()
   update()
+  hiddenCharts.forEach(index => {
+    const d = chart.data.datasets![index]
+    console.log('hiding datasets', index, !!d)
+    if (d) {
+      chart.getDatasetMeta(index).hidden = true
+      d.hidden = true
+    }
+  })
+  chart.update()
+  location.hash = serialize()
 
   return form
 }
