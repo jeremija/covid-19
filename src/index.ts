@@ -354,6 +354,7 @@ function Form(allData: Data, chart: Chart) {
       chart.data.datasets = datasets
     }
     updateSelectedStats(regions)
+    chart.options.scales!.yAxes![0].type = scale
     chart.update()
     location.hash = serialize()
   }
@@ -429,9 +430,7 @@ function Form(allData: Data, chart: Chart) {
   const sortOptions: string[] = ['name', 'confirmed', 'recovered', 'deaths']
   sortOptions.forEach(sortId => {
     const option = document.createElement('option')
-    if (sortId === sort) {
-      option.setAttribute('selected', '')
-    }
+    option.selected = sortId === sort
     option.textContent = 'Sort by ' + sortId
     option.value = sortId
     sortSelect.appendChild(option)
@@ -439,9 +438,29 @@ function Form(allData: Data, chart: Chart) {
   sortSelect.addEventListener('change', e => {
     sort = (e.target as HTMLSelectElement).value as Sort
     rebuildCheckboxes()
+    location.hash = serialize()
   })
   sortSelect.style.marginLeft = '0.25rem'
   buttons.appendChild(sortSelect)
+
+  type Scale = 'linear' | 'logarithmic'
+  let scale: Scale = 'linear'
+  const scaleSelect = document.createElement('select')
+  scaleSelect.id = 'scale'
+  const scaleOptions: Scale[] = ['linear', 'logarithmic']
+  scaleOptions.forEach(scaleId => {
+    const option = document.createElement('option')
+    option.selected = scaleId === scale
+    option.textContent = scaleId
+    option.value = scaleId
+    scaleSelect.appendChild(option)
+  })
+  scaleSelect.addEventListener('change', e => {
+    scale = (e.target as HTMLSelectElement).value as Scale
+    update()
+  })
+  scaleSelect.style.marginLeft = '0.25rem'
+  buttons.appendChild(scaleSelect)
 
   const footer = document.createElement('footer')
   footer.innerHTML = `<footer>
@@ -460,6 +479,7 @@ function Form(allData: Data, chart: Chart) {
     patientZero: boolean
     perCountry: boolean
     sort: Sort
+    scale: Scale,
   }
 
   function serialize(): string {
@@ -472,6 +492,7 @@ function Form(allData: Data, chart: Chart) {
       patientZero: patientZero.checkbox.checked,
       perCountry: perCountry.checkbox.checked,
       sort: sort,
+      scale: scale,
     }
     return encodeURIComponent(JSON.stringify(values))
   }
@@ -497,6 +518,12 @@ function Form(allData: Data, chart: Chart) {
       }
       patientZero.checkbox.checked = values.patientZero
       perCountry.checkbox.checked = values.perCountry
+      sort = values.sort
+      scale = values.scale
+      Array.from(sortSelect.options).forEach(option => {
+        option.selected = option.value === sort
+      })
+      rebuildCheckboxes()
     } catch (err) {
       console.error('Error deserializing:', err)
     }
