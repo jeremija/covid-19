@@ -70,7 +70,8 @@ function CreateChart(data: Data) {
   return {canvas, chart}
 }
 
-const types: Array<'confirmed' | 'deaths' | 'recovered'> = [
+type StatType = 'confirmed' | 'deaths' | 'recovered'
+const types: Array<StatType> = [
   'confirmed', 'deaths', 'recovered',
 ]
 
@@ -164,6 +165,17 @@ function mergeByCountries(data: Data): Data {
   return result
 }
 
+const humanReadables = ['k', 'm', 'b']
+function toHumanReadable(value: number): string {
+  let suffix = ''
+  for (let i = 0; i < humanReadables.length && value > 1000; i++) {
+    value = value / 1000
+    suffix = humanReadables[i]
+  }
+
+  return value.toFixed(0) + suffix
+}
+
 function CheckboxAndLabel(params: {
   id: string
   className: string
@@ -181,6 +193,7 @@ function CheckboxAndLabel(params: {
   const label = document.createElement('label')
   label.setAttribute('for', params.id)
   label.textContent = params.label
+  label.title = params.label
   node.appendChild(checkbox)
   node.appendChild(label)
   return {node, checkbox}
@@ -204,14 +217,34 @@ function Form(allData: Data, chart: Chart) {
   const countries = document.createElement('div')
   countries.className = 'countries'
 
+  const lastDate = (function() {
+    const allDates = Object.keys(allData.total).sort()
+    return allDates[allDates.length - 1]
+  }())
+
+  type Sort = 'name' | StatType
+  let sort: Sort = 'confirmed'
   function rebuildCheckboxes() {
     checkboxes.length = 0
     countries.innerHTML = ''
-    const divs = Object.keys(data.regions).sort().map(key => {
+    const divs = Object.keys(data.regions)
+    .sort((key1, key2) => {
+      if (sort === 'name') {
+        return key1 <  key2 ? -1 : 1
+      }
+      const r1 = data.regions[key1]
+      const r2 = data.regions[key2]
+      return r2.dates[lastDate][sort] - r1.dates[lastDate][sort]
+    })
+    .map(key => {
+      const casesKey: StatType = sort === 'name' ? 'confirmed' : sort
+      const cases = ' ' + toHumanReadable(
+        data.regions[key].dates[lastDate][casesKey],
+      )
       const { node, checkbox } = CheckboxAndLabel({
         id: key,
         className: 'country',
-        label: key,
+        label: key + cases,
         checked: selections[key],
         onChange: e => {
           selections[key] = !selections[key]
@@ -292,6 +325,25 @@ function Form(allData: Data, chart: Chart) {
     label: 'Group by Country',
   })
   buttons.appendChild(perCountry.node)
+
+  const sortSelect = document.createElement('select')
+  sortSelect.id = 'sort'
+  const sortOptions: string[] = ['name', 'confirmed', 'recovered', 'deaths']
+  sortOptions.forEach(sortId => {
+    const option = document.createElement('option')
+    if (sortId === sort) {
+      option.setAttribute('selected', '')
+    }
+    option.textContent = 'Sort by ' + sortId
+    option.value = sortId
+    sortSelect.appendChild(option)
+  })
+  sortSelect.addEventListener('change', e => {
+    sort = (e.target as HTMLSelectElement).value as Sort
+    rebuildCheckboxes()
+  })
+  sortSelect.style.marginLeft = '0.25rem'
+  buttons.appendChild(sortSelect)
 
   const footer = document.createElement('footer')
   footer.innerHTML = `<footer>
