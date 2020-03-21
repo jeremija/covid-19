@@ -490,6 +490,11 @@ function Form(allData: Data, chart: Chart) {
       })
       cummulative.checkbox.checked = values.cummulative
       cummulative.checkbox.checked = values.cummulative
+      if (values.cummulative) {
+        patientZero.checkbox.setAttribute('disabled', '')
+      } else {
+        patientZero.checkbox.removeAttribute('disabled')
+      }
       patientZero.checkbox.checked = values.patientZero
       perCountry.checkbox.checked = values.perCountry
     } catch (err) {
