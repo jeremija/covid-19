@@ -8,11 +8,11 @@ fs.mkdirSync(outDir, {recursive: true})
 const outFile = path.join(outDir, 'index.js')
 
 const confirmedCSV =
-  fs.readFileSync(path.join(srcDir, 'time_series_19-covid-Confirmed.csv'), 'utf8')
+  fs.readFileSync(path.join(srcDir, 'time_series_19-covid-Confirmed.csv'), 'utf8').trim()
 const deathsCSV =
-  fs.readFileSync(path.join(srcDir, 'time_series_19-covid-Deaths.csv'), 'utf8')
+  fs.readFileSync(path.join(srcDir, 'time_series_19-covid-Deaths.csv'), 'utf8').trim()
 const recoveredCSV =
-  fs.readFileSync(path.join(srcDir, 'time_series_19-covid-Recovered.csv'), 'utf8')
+  fs.readFileSync(path.join(srcDir, 'time_series_19-covid-Recovered.csv'), 'utf8').trim()
 
 function parseHeader(line) {
   return line.map(field => {
