@@ -1,4 +1,4 @@
-import { data as _data, Data, DayStat, Region } from '../build/data'
+import { data as _data, Data, DataMap, DayStat, Region, StatType } from '../build/data'
 import { Chart } from 'chart.js'
 import palette from 'coloring-palette'
 
@@ -70,25 +70,21 @@ function CreateChart(data: Data) {
   return {canvas, chart}
 }
 
-type StatType = 'confirmed' | 'deaths' | 'recovered'
 const types: Array<StatType> = [
   'confirmed', 'recovered', 'deaths',
 ]
 
 function calculateCummulativeTimeSeries(data: Record<string, Region>) {
-  let labels: string[] = []
-
   const dates = Object.keys(data).reduce((obj, key) => {
     const region = data[key]
-    const keys = labels = Object.keys(region.dates)
-    keys.forEach(date => {
+    region.dates.forEach(regionDayStat => {
+      const date = regionDayStat.date
       const dayStat = obj[date] = obj[date] || {
         date,
         confirmed: 0,
         deaths: 0,
         recovered: 0,
       }
-      const regionDayStat = region.dates[date]
       dayStat.confirmed += regionDayStat.confirmed
       dayStat.deaths += regionDayStat.deaths
       dayStat.recovered += regionDayStat.recovered
@@ -96,13 +92,16 @@ function calculateCummulativeTimeSeries(data: Record<string, Region>) {
     return obj
   }, {} as Record<string, DayStat>)
 
+  console.log('dates', dates)
+
+  const labels = Object.keys(dates)
   const datasets = types.map(type => {
     return {
       label: type,
       fill: false,
       backgroundColor: colorByType[type],
       borderColor: colorByType[type],
-      data: Object.keys(dates).map(key => dates[key][type]),
+      data: labels.map(key => dates[key][type]),
     }
   })
 
@@ -112,15 +111,33 @@ function calculateCummulativeTimeSeries(data: Record<string, Region>) {
 function calculateDistinctTimeSeries(data: Record<string, Region>) {
   const datasets: Array<Chart.ChartDataSets & { statType: StatType }> = []
 
-  let labels: string[] = []
+  const labelKeys: Record<string, number> = {}
+
+  Object.keys(data).forEach(key => {
+    const region = data[key]
+    region.dates.forEach(dayStat => labelKeys[dayStat.date] = -1)
+  })
+
+  const labels = Object.keys(labelKeys).sort()
+  labels.forEach((date, index) => {
+    labelKeys[date] = index
+  })
 
   Object.keys(data).forEach((key, index) => {
     const region = data[key]
 
     let offset = Infinity
     types.forEach(type => {
-      labels = Object.keys(region.dates)
-      const data = labels.map(date => region.dates[date][type])
+      const data = region.dates.reduce((arr, dayStat) => {
+        const expectedIndex = labelKeys[dayStat.date]
+        while (arr.length < expectedIndex) {
+          console.log('filling missing value for', key, dayStat.date, type)
+          // fill missing values
+          arr.push(arr[arr.length - 1] || 0)
+        }
+        arr.push(dayStat[type])
+        return arr
+      }, [] as number[])
 
       const colors = paletteByType[type]
       const color = colors[index % colors.length]
@@ -163,9 +180,11 @@ function calculateTotal(
   secondToLastDate: string,
 ) {
   return Object.keys(data).reduce((obj, key) => {
+    const dayStat = data[key].dates
+
     types.forEach(type => {
-      obj.last[type] += data[key].dates[lastDate][type]
-      obj.secondToLast[type] += data[key].dates[secondToLastDate][type]
+      obj.last[type] += dayStat.length > 0 ? dayStat[dayStat.length - 1][type] : 0
+      obj.secondToLast[type] += dayStat.length > 1 ? dayStat[dayStat.length - 2][type] : 0
     })
     return obj
   }, {
@@ -183,24 +202,20 @@ function calculateTotal(
 }
 
 function mergeByCountries(data: Data): Data {
-  const result: Data = {
-    total: data.total,
-    regions: {},
-    date: data.date,
-  }
+  const regions: DataMap['regions'] = {}
 
   Object.keys(data.regions).forEach(key => {
     const region = data.regions[key]
     const country = region['Country/Region']
-    const resultRegion = result.regions[country] = result.regions[country] || {
+    const resultRegion = regions[country] = regions[country] || {
       'Country/Region': country,
       'Province/State': '',
       dates: {},
       Lat: 0,
       Lng: 0,
     }
-    Object.keys(region.dates).forEach(date => {
-      const dayStat = region.dates[date]
+    region.dates.forEach(dayStat => {
+      const date = dayStat.date
       const resultDayStat = resultRegion.dates[date] = resultRegion.dates[date] || {
         confirmed: 0,
         date: date,
@@ -213,7 +228,20 @@ function mergeByCountries(data: Data): Data {
     })
   })
 
-  return result
+  const regionsWithArray = Object.keys(regions).reduce((obj, regionKey) => {
+    const region = regions[regionKey]
+    obj[regionKey] = {
+      ...region,
+      dates: Object.keys(region.dates).map(date => region.dates[date]),
+    }
+    return obj
+  }, {} as Data['regions'])
+
+  return {
+    date: data.date,
+    total: data.total,
+    regions: regionsWithArray,
+  }
 }
 
 const humanReadables = ['k', 'm', 'b']
@@ -320,7 +348,14 @@ function Form(allData: Data, chart: Chart) {
 
   type Sort = 'name' | StatType
   let sort: Sort = 'confirmed'
+
+
   function rebuildCheckboxes() {
+    function getLastValue(region: Region, stat: StatType) {
+      const value = region.dates[region.dates.length - 1]
+      return value && value[stat] ? value[stat] : 0
+    }
+
     checkboxes.length = 0
     countries.innerHTML = ''
     const divs = Object.keys(data.regions)
@@ -330,12 +365,12 @@ function Form(allData: Data, chart: Chart) {
       }
       const r1 = data.regions[key1]
       const r2 = data.regions[key2]
-      return r2.dates[lastDate][sort] - r1.dates[lastDate][sort]
+      return getLastValue(r2, sort) - getLastValue(r1, sort)
     })
     .map(key => {
       const casesKey: StatType = sort === 'name' ? 'confirmed' : sort
       const cases = ' ' + toHumanReadable(
-        data.regions[key].dates[lastDate][casesKey],
+        getLastValue(data.regions[key], casesKey),
       )
       const { node, checkbox } = CheckboxAndLabel({
         id: key,

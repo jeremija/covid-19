@@ -1,7 +1,7 @@
 {
   "scripts": {
-    "build": "npm-run-all preprocess css:build ts:build js:build html:build",
-    "watch": "npm-run-all preprocess css:build ts:build --parallel *:watch",
+    "build": "npm-run-all ts:build preprocess css:build js:build html:build",
+    "watch": "npm-run-all ts:build preprocess css:build --parallel *:watch",
     "ts:build": "tsc --project .",
     "ts:watch": "tsc --watch --preserveWatchOutput --project .",
     "js:build": "browserify lib/index.js -o build/web/index.js",
@@ -10,7 +10,7 @@
     "html:watch": "watch 'npm run html:build' views/",
     "css:build": "node-sass --output-style compressed sass/style.sass -o build/web",
     "css:watch": "node-sass --watch sass/style.sass -o build/web",
-    "preprocess": "node scripts/preprocess.js",
+    "preprocess": "node lib/preprocess.js",
     "europa": "npm-run-all europa:download europa:preprocess",
     "europa:download": "node scripts/europa-download.js",
     "europa:preprocess": "node scripts/europa-preprocess.js",
