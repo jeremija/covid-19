@@ -1,6 +1,6 @@
-import fs from 'fs'
-import path from 'path'
-import papaparse from 'papaparse'
+import * as fs from 'fs'
+import * as path from 'path'
+import * as papaparse from 'papaparse'
 import { DayStat, Region, RegionMap, Data, DataMap, StatType } from '../types/data'
 
 const srcDir = path.join(__dirname, '..', 'data', 'csse_covid_19_data', 'csse_covid_19_time_series')
@@ -69,7 +69,10 @@ function mergeAllData(type: StatType, parsed: CSVRecord[], allData: DataMap) {
   parsed.forEach(item => {
     const key = getKey(item)
     const {dates, ...newItem} = item
-    const regions = allData.regions[key] = allData.regions[key] || newItem
+    const regions = allData.regions[key] = allData.regions[key] || {
+      ...newItem,
+      dates: {},
+    }
     Object.keys(dates).forEach(date => {
       regions.dates = regions.dates || {}
       const cDates = regions.dates[date] = regions.dates[date] || {
@@ -102,6 +105,10 @@ function toArrays(allData: DataMap): Data {
     date: allData.date,
     total: [],
     regions: {},
+    source: {
+      name: 'John Hopkins COVID-19 dataset',
+      link: 'https://github.com/CSSEGISandData/COVID-19',
+    }
   }
 
   data.total = Object.keys(allData.total).map(key => {

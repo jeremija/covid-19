@@ -92,9 +92,7 @@ function calculateCummulativeTimeSeries(data: Record<string, Region>) {
     return obj
   }, {} as Record<string, DayStat>)
 
-  console.log('dates', dates)
-
-  const labels = Object.keys(dates)
+  const labels = Object.keys(dates).sort()
   const datasets = types.map(type => {
     return {
       label: type,
@@ -239,6 +237,7 @@ function mergeByCountries(data: Data): Data {
 
   return {
     date: data.date,
+    source: data.source,
     total: data.total,
     regions: regionsWithArray,
   }
@@ -524,8 +523,7 @@ function Form(allData: Data, chart: Chart) {
 
   const footer = document.createElement('footer')
   footer.innerHTML = `<footer>
-    Generated from John Hopkins'
-    <a href="https://github.com/CSSEGISandData/COVID-19"> COVID-19 dataset</a>
+    <a href="${allData.source.link}">${allData.source.name}</a>
     at ${new Date(allData.date).toUTCString()}
     by <a href="https://github.com/jeremija">jeremija</a>/<a href="https://github.com/jeremija/covid-19">covid-19</a>
   </footer>`

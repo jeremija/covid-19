@@ -16,7 +16,7 @@ async function download(date, dest) {
       response.pipe(file)
       file.on('error', function(err) {
         file.close()
-        rejec(err)
+        reject(err)
       })
       file.on('finish', function() {
         file.close()
@@ -28,7 +28,9 @@ async function download(date, dest) {
 
 async function downloadTodayOrYesterday() {
   const date = new Date()
-  const dest = 'build/europa.xlsx'
+  const outDir = path.join(__dirname, '..', 'build')
+  fs.mkdirSync(outDir, { recursive:true })
+  const dest = path.join(outDir, 'europa.xlsx')
   try {
     await download(date, dest)
   } catch (err) {

@@ -1,5 +1,5 @@
-import fs from 'fs'
-import path from 'path'
+import * as fs from 'fs'
+import * as path from 'path'
 import { Data, RegionMap, Region, DayStat } from '../types/data'
 const xlsx = require('xlsx')
 
@@ -114,6 +114,10 @@ const total = Object.keys(regions).reduce((obj, regionKey) => {
 
 const allData: Data = {
   date: new Date().toISOString(),
+  source: {
+    name: 'European Centre for Disease Prevention and Control',
+    link: 'https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide',
+  },
   regions,
   total: Object.keys(total).map(key => total[key]),
 }

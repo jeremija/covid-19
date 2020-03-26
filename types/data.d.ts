@@ -17,6 +17,10 @@ export interface Data {
   date: string
   total: DayStat[]
   regions: Record<string, Region>
+  source: {
+    name: string
+    link: string
+  }
 }
 
 export interface RegionMap {

@@ -1,6 +1,7 @@
 {
   "scripts": {
     "build": "npm-run-all preprocess css:build ts:build js:build html:build",
+    "build:europa": "npm-run-all europa css:build ts:build js:build html:build",
     "watch": "npm-run-all preprocess css:build ts:build --parallel *:watch",
     "ts:build": "tsc --project .",
     "ts:watch": "tsc --watch --preserveWatchOutput --project .",
