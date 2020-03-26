@@ -1,8 +1,7 @@
 {
-  "exclude": ["node_modules", "scripts", "lib"],
   "compilerOptions": {
-    "outDir": "lib",
-    "rootDir": "src",
+    "outDir": "./",
+    "rootDir": "./",
     "composite": false,
     "declaration": true,
     "declarationMap": true,
