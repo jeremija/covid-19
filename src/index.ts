@@ -523,7 +523,7 @@ function Form(allData: Data, chart: Chart) {
 
   const footer = document.createElement('footer')
   footer.innerHTML = `<footer>
-    <a href="${allData.source.link}">${allData.source.name}</a>
+    Built from <a href="${allData.source.link}">${allData.source.name}</a>
     at ${new Date(allData.date).toUTCString()}
     by <a href="https://github.com/jeremija">jeremija</a>/<a href="https://github.com/jeremija/covid-19">covid-19</a>
   </footer>`

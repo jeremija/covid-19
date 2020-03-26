@@ -115,7 +115,7 @@ const total = Object.keys(regions).reduce((obj, regionKey) => {
 const allData: Data = {
   date: new Date().toISOString(),
   source: {
-    name: 'European Centre for Disease Prevention and Control',
+    name: 'ECDC\'s COVID-19 dataset',
     link: 'https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide',
   },
   regions,

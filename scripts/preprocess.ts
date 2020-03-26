@@ -106,7 +106,7 @@ function toArrays(allData: DataMap): Data {
     total: [],
     regions: {},
     source: {
-      name: 'John Hopkins COVID-19 dataset',
+      name: 'John Hopkins\' COVID-19 dataset',
       link: 'https://github.com/CSSEGISandData/COVID-19',
     }
   }
