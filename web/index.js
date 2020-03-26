@@ -1,6 +1,6 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 module.exports.data = {
-  "date": "2020-03-26T11:03:36.525Z",
+  "date": "2020-03-26T11:04:54.554Z",
   "total": [
     {
       "date": "2020-01-22",
@@ -99132,7 +99132,7 @@ module.exports.data = {
     }
   },
   "source": {
-    "name": "John Hopkins COVID-19 dataset",
+    "name": "John Hopkins' COVID-19 dataset",
     "link": "https://github.com/CSSEGISandData/COVID-19"
   }
 }
@@ -99594,7 +99594,7 @@ function Form(allData, chart) {
     scaleSelect.style.marginLeft = '0.25rem';
     buttons.appendChild(scaleSelect);
     var footer = document.createElement('footer');
-    footer.innerHTML = "<footer>\n    <a href=\"" + allData.source.link + "\">" + allData.source.name + "</a>\n    at " + new Date(allData.date).toUTCString() + "\n    by <a href=\"https://github.com/jeremija\">jeremija</a>/<a href=\"https://github.com/jeremija/covid-19\">covid-19</a>\n  </footer>";
+    footer.innerHTML = "<footer>\n    Built from <a href=\"" + allData.source.link + "\">" + allData.source.name + "</a>\n    at " + new Date(allData.date).toUTCString() + "\n    by <a href=\"https://github.com/jeremija\">jeremija</a>/<a href=\"https://github.com/jeremija/covid-19\">covid-19</a>\n  </footer>";
     form.appendChild(footer);
     function serialize() {
         var values = {
