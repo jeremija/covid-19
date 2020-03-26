@@ -10,13 +10,29 @@ export interface Region {
   'Province/State': string
   Lat: string
   Long: string
-  dates: Record<string, DayStat>
+  dates: DayStat[]
 }
 
 export interface Data {
   date: string
-  total: Record<string, DayStat>
+  total: DayStat[]
   regions: Record<string, Region>
 }
+
+export interface RegionMap {
+  'Country/Region': string
+  'Province/State': string
+  Lat: string
+  Long: string
+  dates: Record<string, DayStat>
+}
+
+export interface DataMap {
+  date: string
+  total: Record<string, DayStat>
+  regions: Record<string, RegionMap>
+}
+
+export type StatType = 'confirmed' | 'deaths' | 'recovered'
 
 export declare const data: Data
