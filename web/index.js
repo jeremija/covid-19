@@ -1,6 +1,6 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 module.exports.data = {
-  "date": "2020-03-27T14:05:02.217Z",
+  "date": "2020-03-28T10:39:00.591Z",
   "total": [
     {
       "date": "2020-01-22",
@@ -391,6 +391,12 @@ module.exports.data = {
       "confirmed": 529591,
       "deaths": 23970,
       "recovered": 122150
+    },
+    {
+      "date": "2020-03-27",
+      "confirmed": 593291,
+      "deaths": 27198,
+      "recovered": 130915
     }
   ],
   "regions": {
@@ -788,6 +794,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 2,
           "confirmed": 94,
+          "deaths": 4
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 2,
+          "confirmed": 110,
           "deaths": 4
         }
       ]
@@ -1187,6 +1199,12 @@ module.exports.data = {
           "recovered": 17,
           "confirmed": 174,
           "deaths": 6
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 31,
+          "confirmed": 186,
+          "deaths": 8
         }
       ]
     },
@@ -1585,6 +1603,12 @@ module.exports.data = {
           "recovered": 29,
           "confirmed": 367,
           "deaths": 25
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 29,
+          "confirmed": 409,
+          "deaths": 26
         }
       ]
     },
@@ -1983,6 +2007,12 @@ module.exports.data = {
           "recovered": 1,
           "confirmed": 224,
           "deaths": 3
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1,
+          "confirmed": 267,
+          "deaths": 3
         }
       ]
     },
@@ -2378,6 +2408,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 4,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 4,
           "deaths": 0
@@ -2779,6 +2815,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 7,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 7,
+          "deaths": 0
         }
       ]
     },
@@ -3177,6 +3219,12 @@ module.exports.data = {
           "recovered": 63,
           "confirmed": 502,
           "deaths": 9
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 72,
+          "confirmed": 589,
+          "deaths": 13
         }
       ]
     },
@@ -3574,6 +3622,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 18,
           "confirmed": 290,
+          "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 28,
+          "confirmed": 329,
           "deaths": 1
         }
       ]
@@ -3973,6 +4027,12 @@ module.exports.data = {
           "recovered": 1,
           "confirmed": 53,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1,
+          "confirmed": 62,
+          "deaths": 0
         }
       ]
     },
@@ -4371,6 +4431,12 @@ module.exports.data = {
           "recovered": 4,
           "confirmed": 1219,
           "deaths": 7
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 4,
+          "confirmed": 1405,
+          "deaths": 7
         }
       ]
     },
@@ -4766,6 +4832,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 12,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 12,
           "deaths": 0
@@ -5167,6 +5239,12 @@ module.exports.data = {
           "recovered": 8,
           "confirmed": 493,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 8,
+          "confirmed": 555,
+          "deaths": 1
         }
       ]
     },
@@ -5565,6 +5643,12 @@ module.exports.data = {
           "recovered": 6,
           "confirmed": 235,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 6,
+          "confirmed": 257,
+          "deaths": 0
         }
       ]
     },
@@ -5960,6 +6044,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 3,
+          "confirmed": 47,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 3,
           "confirmed": 47,
           "deaths": 0
@@ -6361,6 +6451,12 @@ module.exports.data = {
           "recovered": 149,
           "confirmed": 520,
           "deaths": 3
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 171,
+          "confirmed": 574,
+          "deaths": 3
         }
       ]
     },
@@ -6756,6 +6852,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 1,
+          "confirmed": 231,
+          "deaths": 2
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 1,
           "confirmed": 231,
           "deaths": 2
@@ -7157,6 +7259,12 @@ module.exports.data = {
           "recovered": 112,
           "confirmed": 6909,
           "deaths": 49
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 225,
+          "confirmed": 7657,
+          "deaths": 58
         }
       ]
     },
@@ -7554,6 +7662,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 15,
           "confirmed": 122,
+          "deaths": 3
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 15,
+          "confirmed": 165,
           "deaths": 3
         }
       ]
@@ -7953,6 +8067,12 @@ module.exports.data = {
           "recovered": 1,
           "confirmed": 9,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1,
+          "confirmed": 10,
+          "deaths": 0
         }
       ]
     },
@@ -8350,6 +8470,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 204,
           "confirmed": 458,
+          "deaths": 4
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 227,
+          "confirmed": 466,
           "deaths": 4
         }
       ]
@@ -8749,6 +8875,12 @@ module.exports.data = {
           "recovered": 11,
           "confirmed": 44,
           "deaths": 5
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 11,
+          "confirmed": 48,
+          "deaths": 5
         }
       ]
     },
@@ -9146,6 +9278,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 0,
           "confirmed": 18,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 24,
           "deaths": 0
         }
       ]
@@ -9545,6 +9683,12 @@ module.exports.data = {
           "recovered": 29,
           "confirmed": 86,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 32,
+          "confirmed": 94,
+          "deaths": 0
         }
       ]
     },
@@ -9943,6 +10087,12 @@ module.exports.data = {
           "recovered": 675,
           "confirmed": 6235,
           "deaths": 220
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 858,
+          "confirmed": 7284,
+          "deaths": 289
         }
       ]
     },
@@ -10338,6 +10488,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 6,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 6,
           "deaths": 0
@@ -10739,6 +10895,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 2,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 3,
+          "deaths": 0
         }
       ]
     },
@@ -11136,6 +11298,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 0,
           "confirmed": 43,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 61,
           "deaths": 0
         }
       ]
@@ -11535,6 +11703,12 @@ module.exports.data = {
           "recovered": 2,
           "confirmed": 191,
           "deaths": 3
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 5,
+          "confirmed": 237,
+          "deaths": 4
         }
       ]
     },
@@ -11933,6 +12107,12 @@ module.exports.data = {
           "recovered": 6,
           "confirmed": 2985,
           "deaths": 77
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 6,
+          "confirmed": 3417,
+          "deaths": 92
         }
       ]
     },
@@ -12330,6 +12510,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 5,
           "confirmed": 114,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 11,
+          "confirmed": 115,
           "deaths": 0
         }
       ]
@@ -12729,6 +12915,12 @@ module.exports.data = {
           "recovered": 8,
           "confirmed": 264,
           "deaths": 3
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 9,
+          "confirmed": 293,
+          "deaths": 3
         }
       ]
     },
@@ -13127,6 +13319,12 @@ module.exports.data = {
           "recovered": 10,
           "confirmed": 152,
           "deaths": 7
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 12,
+          "confirmed": 180,
+          "deaths": 9
         }
       ]
     },
@@ -13524,6 +13722,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 0,
           "confirmed": 4,
+          "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 5,
           "deaths": 1
         }
       ]
@@ -13923,13 +14127,19 @@ module.exports.data = {
           "recovered": 10,
           "confirmed": 96,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 11,
+          "confirmed": 99,
+          "deaths": 0
         }
       ]
     },
     "Cameroon": {
       "Country/Region": "Cameroon",
       "Province/State": "",
-      "Lat": "3.8480000000000003",
+      "Lat": "3.848",
       "Long": "11.5021",
       "dates": [
         {
@@ -14321,6 +14531,12 @@ module.exports.data = {
           "recovered": 2,
           "confirmed": 75,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 2,
+          "confirmed": 91,
+          "deaths": 2
         }
       ]
     },
@@ -14719,6 +14935,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 486,
           "deaths": 2
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 542,
+          "deaths": 2
         }
       ]
     },
@@ -15114,6 +15336,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 725,
+          "deaths": 14
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 725,
           "deaths": 14
@@ -15515,6 +15743,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 13,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 13,
+          "deaths": 0
         }
       ]
     },
@@ -15913,6 +16147,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 36,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 39,
+          "deaths": 1
         }
       ]
     },
@@ -16310,6 +16550,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 0,
           "confirmed": 33,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 45,
           "deaths": 0
         }
       ]
@@ -16709,13 +16955,19 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 82,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 102,
+          "deaths": 0
         }
       ]
     },
     "Canada, Nova Scotia": {
       "Country/Region": "Canada",
       "Province/State": "Nova Scotia",
-      "Lat": "44.681999999999995",
+      "Lat": "44.682",
       "Long": "-63.7443",
       "dates": [
         {
@@ -17106,6 +17358,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 0,
           "confirmed": 73,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 90,
           "deaths": 0
         }
       ]
@@ -17505,6 +17763,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 858,
           "deaths": 13
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 994,
+          "deaths": 18
         }
       ]
     },
@@ -17902,6 +18166,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 0,
           "confirmed": 5,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 9,
           "deaths": 0
         }
       ]
@@ -18301,6 +18571,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 1632,
           "deaths": 8
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 2024,
+          "deaths": 18
         }
       ]
     },
@@ -18696,6 +18972,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 95,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 95,
           "deaths": 0
@@ -19097,6 +19379,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 3,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 3,
+          "deaths": 0
         }
       ]
     },
@@ -19492,6 +19780,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 3,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 3,
           "deaths": 0
@@ -19893,6 +20187,12 @@ module.exports.data = {
           "recovered": 22,
           "confirmed": 1306,
           "deaths": 4
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 43,
+          "confirmed": 1610,
+          "deaths": 5
         }
       ]
     },
@@ -20288,6 +20588,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 984,
+          "confirmed": 990,
+          "deaths": 6
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 984,
           "confirmed": 990,
           "deaths": 6
@@ -20689,6 +20995,12 @@ module.exports.data = {
           "recovered": 406,
           "confirmed": 566,
           "deaths": 8
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 408,
+          "confirmed": 569,
+          "deaths": 8
         }
       ]
     },
@@ -21084,6 +21396,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 570,
+          "confirmed": 578,
+          "deaths": 6
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 570,
           "confirmed": 578,
           "deaths": 6
@@ -21485,6 +21803,12 @@ module.exports.data = {
           "recovered": 295,
           "confirmed": 328,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 295,
+          "confirmed": 331,
+          "deaths": 1
         }
       ]
     },
@@ -21881,6 +22205,12 @@ module.exports.data = {
         {
           "date": "2020-03-26",
           "recovered": 121,
+          "confirmed": 136,
+          "deaths": 2
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 123,
           "confirmed": 136,
           "deaths": 2
         }
@@ -22281,6 +22611,12 @@ module.exports.data = {
           "recovered": 1336,
           "confirmed": 1448,
           "deaths": 8
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1337,
+          "confirmed": 1456,
+          "deaths": 8
         }
       ]
     },
@@ -22676,6 +23012,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 250,
+          "confirmed": 254,
+          "deaths": 2
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 250,
           "confirmed": 254,
           "deaths": 2
@@ -23077,6 +23419,12 @@ module.exports.data = {
           "recovered": 144,
           "confirmed": 146,
           "deaths": 2
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 144,
+          "confirmed": 146,
+          "deaths": 2
         }
       ]
     },
@@ -23472,6 +23820,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 168,
+          "confirmed": 168,
+          "deaths": 6
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 168,
           "confirmed": 168,
           "deaths": 6
@@ -23873,13 +24227,19 @@ module.exports.data = {
           "recovered": 310,
           "confirmed": 319,
           "deaths": 6
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 310,
+          "confirmed": 319,
+          "deaths": 6
         }
       ]
     },
     "China, Heilongjiang": {
       "Country/Region": "China",
       "Province/State": "Heilongjiang",
-      "Lat": "47.861999999999995",
+      "Lat": "47.862",
       "Long": "127.7615",
       "dates": [
         {
@@ -24271,6 +24631,12 @@ module.exports.data = {
           "recovered": 469,
           "confirmed": 484,
           "deaths": 13
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 469,
+          "confirmed": 484,
+          "deaths": 13
         }
       ]
     },
@@ -24278,7 +24644,7 @@ module.exports.data = {
       "Country/Region": "China",
       "Province/State": "Henan",
       "Lat": "33.882",
-      "Long": "113.61399999999999",
+      "Long": "113.614",
       "dates": [
         {
           "date": "2020-01-22",
@@ -24666,6 +25032,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 1250,
+          "confirmed": 1275,
+          "deaths": 22
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 1250,
           "confirmed": 1275,
           "deaths": 22
@@ -25067,6 +25439,12 @@ module.exports.data = {
           "recovered": 110,
           "confirmed": 453,
           "deaths": 4
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 110,
+          "confirmed": 519,
+          "deaths": 4
         }
       ]
     },
@@ -25465,6 +25843,12 @@ module.exports.data = {
           "recovered": 61201,
           "confirmed": 67801,
           "deaths": 3169
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 61732,
+          "confirmed": 67801,
+          "deaths": 3174
         }
       ]
     },
@@ -25860,6 +26244,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 1014,
+          "confirmed": 1018,
+          "deaths": 4
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 1014,
           "confirmed": 1018,
           "deaths": 4
@@ -26261,6 +26651,12 @@ module.exports.data = {
           "recovered": 74,
           "confirmed": 89,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 74,
+          "confirmed": 92,
+          "deaths": 1
         }
       ]
     },
@@ -26659,6 +27055,12 @@ module.exports.data = {
           "recovered": 631,
           "confirmed": 640,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 631,
+          "confirmed": 641,
+          "deaths": 0
         }
       ]
     },
@@ -27054,6 +27456,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 934,
+          "confirmed": 936,
+          "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 934,
           "confirmed": 936,
           "deaths": 1
@@ -27455,6 +27863,12 @@ module.exports.data = {
           "recovered": 92,
           "confirmed": 95,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 92,
+          "confirmed": 95,
+          "deaths": 1
         }
       ]
     },
@@ -27850,6 +28264,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 124,
+          "confirmed": 128,
+          "deaths": 2
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 124,
           "confirmed": 128,
           "deaths": 2
@@ -28251,6 +28671,12 @@ module.exports.data = {
           "recovered": 10,
           "confirmed": 31,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 10,
+          "confirmed": 33,
+          "deaths": 0
         }
       ]
     },
@@ -28646,6 +29072,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 75,
+          "confirmed": 75,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 75,
           "confirmed": 75,
           "deaths": 0
@@ -29047,6 +29479,12 @@ module.exports.data = {
           "recovered": 18,
           "confirmed": 18,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 18,
+          "confirmed": 18,
+          "deaths": 0
         }
       ]
     },
@@ -29442,6 +29880,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 242,
+          "confirmed": 253,
+          "deaths": 3
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 242,
           "confirmed": 253,
           "deaths": 3
@@ -29843,13 +30287,19 @@ module.exports.data = {
           "recovered": 752,
           "confirmed": 771,
           "deaths": 7
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 752,
+          "confirmed": 772,
+          "deaths": 7
         }
       ]
     },
     "China, Shanghai": {
       "Country/Region": "China",
       "Province/State": "Shanghai",
-      "Lat": "31.201999999999998",
+      "Lat": "31.202",
       "Long": "121.4491",
       "dates": [
         {
@@ -30240,6 +30690,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 331,
           "confirmed": 451,
+          "deaths": 5
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 334,
+          "confirmed": 468,
           "deaths": 5
         }
       ]
@@ -30636,6 +31092,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 133,
+          "confirmed": 135,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 133,
           "confirmed": 135,
           "deaths": 0
@@ -31037,6 +31499,12 @@ module.exports.data = {
           "recovered": 536,
           "confirmed": 547,
           "deaths": 3
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 536,
+          "confirmed": 548,
+          "deaths": 3
         }
       ]
     },
@@ -31435,6 +31903,12 @@ module.exports.data = {
           "recovered": 133,
           "confirmed": 151,
           "deaths": 3
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 133,
+          "confirmed": 155,
+          "deaths": 3
         }
       ]
     },
@@ -31830,6 +32304,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 1,
+          "confirmed": 1,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 1,
           "confirmed": 1,
           "deaths": 0
@@ -32231,6 +32711,12 @@ module.exports.data = {
           "recovered": 73,
           "confirmed": 76,
           "deaths": 3
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 73,
+          "confirmed": 76,
+          "deaths": 3
         }
       ]
     },
@@ -32238,7 +32724,7 @@ module.exports.data = {
       "Country/Region": "China",
       "Province/State": "Yunnan",
       "Lat": "24.974",
-      "Long": "101.48700000000001",
+      "Long": "101.487",
       "dates": [
         {
           "date": "2020-01-22",
@@ -32628,6 +33114,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 172,
           "confirmed": 178,
+          "deaths": 2
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 172,
+          "confirmed": 180,
           "deaths": 2
         }
       ]
@@ -33027,6 +33519,12 @@ module.exports.data = {
           "recovered": 1222,
           "confirmed": 1243,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1222,
+          "confirmed": 1247,
+          "deaths": 1
         }
       ]
     },
@@ -33425,6 +33923,12 @@ module.exports.data = {
           "recovered": 8,
           "confirmed": 491,
           "deaths": 6
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 10,
+          "confirmed": 539,
+          "deaths": 6
         }
       ]
     },
@@ -33820,6 +34324,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 4,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 4,
           "deaths": 0
@@ -34221,6 +34731,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 51,
           "deaths": 3
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 2,
+          "confirmed": 51,
+          "deaths": 3
         }
       ]
     },
@@ -34618,6 +35134,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 2,
           "confirmed": 231,
+          "deaths": 2
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 3,
+          "confirmed": 263,
           "deaths": 2
         }
       ]
@@ -35017,6 +35539,12 @@ module.exports.data = {
           "recovered": 3,
           "confirmed": 96,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 3,
+          "confirmed": 101,
+          "deaths": 0
         }
       ]
     },
@@ -35415,6 +35943,12 @@ module.exports.data = {
           "recovered": 22,
           "confirmed": 495,
           "deaths": 3
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 37,
+          "confirmed": 586,
+          "deaths": 3
         }
       ]
     },
@@ -35810,6 +36344,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 597,
+          "confirmed": 712,
+          "deaths": 10
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 597,
           "confirmed": 712,
           "deaths": 10
@@ -36211,6 +36751,12 @@ module.exports.data = {
           "recovered": 1,
           "confirmed": 67,
           "deaths": 2
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 4,
+          "confirmed": 80,
+          "deaths": 2
         }
       ]
     },
@@ -36609,6 +37155,12 @@ module.exports.data = {
           "recovered": 4,
           "confirmed": 146,
           "deaths": 3
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 15,
+          "confirmed": 162,
+          "deaths": 5
         }
       ]
     },
@@ -36616,7 +37168,7 @@ module.exports.data = {
       "Country/Region": "Czechia",
       "Province/State": "",
       "Lat": "49.8175",
-      "Long": "15.472999999999999",
+      "Long": "15.473",
       "dates": [
         {
           "date": "2020-01-22",
@@ -37006,6 +37558,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 10,
           "confirmed": 1925,
+          "deaths": 9
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 11,
+          "confirmed": 2279,
           "deaths": 9
         }
       ]
@@ -37405,6 +37963,12 @@ module.exports.data = {
           "recovered": 47,
           "confirmed": 140,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 54,
+          "confirmed": 144,
+          "deaths": 0
         }
       ]
     },
@@ -37802,6 +38366,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 2,
           "confirmed": 6,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 2,
+          "confirmed": 10,
           "deaths": 0
         }
       ]
@@ -38201,6 +38771,12 @@ module.exports.data = {
           "recovered": 1,
           "confirmed": 1877,
           "deaths": 41
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1,
+          "confirmed": 2046,
+          "deaths": 52
         }
       ]
     },
@@ -38598,6 +39174,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 0,
           "confirmed": 11,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 12,
           "deaths": 0
         }
       ]
@@ -38997,6 +39579,12 @@ module.exports.data = {
           "recovered": 3,
           "confirmed": 488,
           "deaths": 10
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 3,
+          "confirmed": 581,
+          "deaths": 20
         }
       ]
     },
@@ -39395,6 +39983,12 @@ module.exports.data = {
           "recovered": 3,
           "confirmed": 1403,
           "deaths": 34
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 3,
+          "confirmed": 1595,
+          "deaths": 36
         }
       ]
     },
@@ -39793,6 +40387,12 @@ module.exports.data = {
           "recovered": 102,
           "confirmed": 495,
           "deaths": 24
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 116,
+          "confirmed": 536,
+          "deaths": 30
         }
       ]
     },
@@ -40188,6 +40788,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 13,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 13,
           "deaths": 0
@@ -40589,6 +41195,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 12,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 12,
+          "deaths": 0
         }
       ]
     },
@@ -40984,6 +41596,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 6,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 6,
           "deaths": 0
@@ -41385,6 +42003,12 @@ module.exports.data = {
           "recovered": 8,
           "confirmed": 538,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 11,
+          "confirmed": 575,
+          "deaths": 1
         }
       ]
     },
@@ -41782,6 +42406,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 0,
           "confirmed": 6,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 9,
           "deaths": 0
         }
       ]
@@ -42181,6 +42811,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 12,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 16,
+          "deaths": 0
         }
       ]
     },
@@ -42576,6 +43212,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 5,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 5,
           "deaths": 0
@@ -42977,6 +43619,12 @@ module.exports.data = {
           "recovered": 10,
           "confirmed": 958,
           "deaths": 5
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 10,
+          "confirmed": 1041,
+          "deaths": 7
         }
       ]
     },
@@ -43372,6 +44020,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 6,
+          "confirmed": 28,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 6,
           "confirmed": 28,
           "deaths": 0
@@ -43773,6 +44427,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 30,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 30,
+          "deaths": 0
         }
       ]
     },
@@ -44168,6 +44828,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 73,
+          "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 73,
           "deaths": 1
@@ -44569,6 +45235,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 36,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 50,
+          "deaths": 0
         }
       ]
     },
@@ -44966,6 +45638,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 0,
           "confirmed": 14,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 15,
           "deaths": 0
         }
       ]
@@ -45365,6 +46043,12 @@ module.exports.data = {
           "recovered": 1,
           "confirmed": 135,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1,
+          "confirmed": 145,
+          "deaths": 0
         }
       ]
     },
@@ -45763,6 +46447,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 3,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 5,
+          "deaths": 0
         }
       ]
     },
@@ -46158,6 +46848,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 11,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 11,
           "deaths": 0
@@ -46559,6 +47255,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 66,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 81,
+          "deaths": 1
         }
       ]
     },
@@ -46957,6 +47659,12 @@ module.exports.data = {
           "recovered": 4948,
           "confirmed": 29155,
           "deaths": 1696
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 5700,
+          "confirmed": 32964,
+          "deaths": 1995
         }
       ]
     },
@@ -47352,6 +48060,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 7,
+          "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 7,
           "deaths": 1
@@ -47753,6 +48467,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 3,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 3,
+          "deaths": 1
         }
       ]
     },
@@ -48150,6 +48870,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 11,
           "confirmed": 79,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 14,
+          "confirmed": 83,
           "deaths": 0
         }
       ]
@@ -48549,6 +49275,12 @@ module.exports.data = {
           "recovered": 5673,
           "confirmed": 43938,
           "deaths": 267
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 6658,
+          "confirmed": 50871,
+          "deaths": 342
         }
       ]
     },
@@ -48946,6 +49678,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 1,
           "confirmed": 132,
+          "deaths": 4
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 2,
+          "confirmed": 137,
           "deaths": 4
         }
       ]
@@ -49345,6 +50083,12 @@ module.exports.data = {
           "recovered": 36,
           "confirmed": 892,
           "deaths": 26
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 52,
+          "confirmed": 966,
+          "deaths": 28
         }
       ]
     },
@@ -49742,6 +50486,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 4,
           "confirmed": 25,
+          "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 4,
+          "confirmed": 28,
           "deaths": 1
         }
       ]
@@ -50141,6 +50891,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 4,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 8,
+          "deaths": 0
         }
       ]
     },
@@ -50536,6 +51292,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 5,
+          "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 5,
           "deaths": 1
@@ -50937,6 +51699,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 8,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 8,
+          "deaths": 0
         }
       ]
     },
@@ -51332,6 +52100,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 4,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 4,
           "deaths": 0
@@ -51733,6 +52507,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 52,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 68,
+          "deaths": 1
         }
       ]
     },
@@ -52130,6 +52910,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 28,
           "confirmed": 261,
+          "deaths": 10
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 34,
+          "confirmed": 300,
           "deaths": 10
         }
       ]
@@ -52529,6 +53315,12 @@ module.exports.data = {
           "recovered": 82,
           "confirmed": 802,
           "deaths": 2
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 97,
+          "confirmed": 890,
+          "deaths": 2
         }
       ]
     },
@@ -52926,6 +53718,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 45,
           "confirmed": 727,
+          "deaths": 20
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 73,
+          "confirmed": 887,
           "deaths": 20
         }
       ]
@@ -53325,6 +54123,12 @@ module.exports.data = {
           "recovered": 35,
           "confirmed": 893,
           "deaths": 78
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 46,
+          "confirmed": 1046,
+          "deaths": 87
         }
       ]
     },
@@ -53723,6 +54527,12 @@ module.exports.data = {
           "recovered": 10457,
           "confirmed": 29406,
           "deaths": 2234
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 11133,
+          "confirmed": 32332,
+          "deaths": 2378
         }
       ]
     },
@@ -54121,6 +54931,12 @@ module.exports.data = {
           "recovered": 105,
           "confirmed": 382,
           "deaths": 36
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 122,
+          "confirmed": 458,
+          "deaths": 40
         }
       ]
     },
@@ -54519,6 +55335,12 @@ module.exports.data = {
           "recovered": 5,
           "confirmed": 1819,
           "deaths": 19
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 5,
+          "confirmed": 2121,
+          "deaths": 22
         }
       ]
     },
@@ -54917,6 +55739,12 @@ module.exports.data = {
           "recovered": 68,
           "confirmed": 2693,
           "deaths": 8
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 79,
+          "confirmed": 3035,
+          "deaths": 12
         }
       ]
     },
@@ -55315,6 +56143,12 @@ module.exports.data = {
           "recovered": 10361,
           "confirmed": 80589,
           "deaths": 8215
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 10950,
+          "confirmed": 86498,
+          "deaths": 9134
         }
       ]
     },
@@ -55710,6 +56544,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 2,
+          "confirmed": 26,
+          "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 2,
           "confirmed": 26,
           "deaths": 1
@@ -56111,6 +56951,12 @@ module.exports.data = {
           "recovered": 359,
           "confirmed": 1387,
           "deaths": 47
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 372,
+          "confirmed": 1468,
+          "deaths": 49
         }
       ]
     },
@@ -56509,6 +57355,12 @@ module.exports.data = {
           "recovered": 1,
           "confirmed": 212,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 18,
+          "confirmed": 235,
+          "deaths": 1
         }
       ]
     },
@@ -56907,6 +57759,12 @@ module.exports.data = {
           "recovered": 2,
           "confirmed": 111,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 3,
+          "confirmed": 150,
+          "deaths": 1
         }
       ]
     },
@@ -57302,6 +58160,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 1,
+          "confirmed": 31,
+          "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 1,
           "confirmed": 31,
           "deaths": 1
@@ -57703,6 +58567,12 @@ module.exports.data = {
           "recovered": 4144,
           "confirmed": 9241,
           "deaths": 131
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 4528,
+          "confirmed": 9332,
+          "deaths": 139
         }
       ]
     },
@@ -58100,6 +58970,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 49,
           "confirmed": 208,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 57,
+          "confirmed": 225,
           "deaths": 0
         }
       ]
@@ -58499,6 +59375,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 44,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 58,
+          "deaths": 0
         }
       ]
     },
@@ -58896,6 +59778,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 1,
           "confirmed": 244,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1,
+          "confirmed": 280,
           "deaths": 0
         }
       ]
@@ -59295,6 +60183,12 @@ module.exports.data = {
           "recovered": 23,
           "confirmed": 368,
           "deaths": 6
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 27,
+          "confirmed": 391,
+          "deaths": 8
         }
       ]
     },
@@ -59690,6 +60584,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 3,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 3,
           "deaths": 0
@@ -60091,6 +60991,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 56,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 56,
+          "deaths": 0
         }
       ]
     },
@@ -60489,6 +61395,12 @@ module.exports.data = {
           "recovered": 1,
           "confirmed": 299,
           "deaths": 4
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1,
+          "confirmed": 358,
+          "deaths": 5
         }
       ]
     },
@@ -60887,6 +61799,12 @@ module.exports.data = {
           "recovered": 6,
           "confirmed": 1453,
           "deaths": 9
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 40,
+          "confirmed": 1605,
+          "deaths": 15
         }
       ]
     },
@@ -61284,6 +62202,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 0,
           "confirmed": 23,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 26,
           "deaths": 0
         }
       ]
@@ -61683,6 +62607,12 @@ module.exports.data = {
           "recovered": 215,
           "confirmed": 2031,
           "deaths": 23
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 259,
+          "confirmed": 2161,
+          "deaths": 26
         }
       ]
     },
@@ -62080,6 +63010,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 8,
           "confirmed": 13,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 9,
+          "confirmed": 16,
           "deaths": 0
         }
       ]
@@ -62479,6 +63415,12 @@ module.exports.data = {
           "recovered": 2,
           "confirmed": 134,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 2,
+          "confirmed": 139,
+          "deaths": 0
         }
       ]
     },
@@ -62874,6 +63816,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 3,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 3,
           "deaths": 0
@@ -63275,6 +64223,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 81,
           "deaths": 2
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 94,
+          "deaths": 2
         }
       ]
     },
@@ -63673,6 +64627,12 @@ module.exports.data = {
           "recovered": 4,
           "confirmed": 475,
           "deaths": 6
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 4,
+          "confirmed": 585,
+          "deaths": 8
         }
       ]
     },
@@ -64071,6 +65031,12 @@ module.exports.data = {
           "recovered": 2,
           "confirmed": 177,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 2,
+          "confirmed": 199,
+          "deaths": 2
         }
       ]
     },
@@ -64469,6 +65435,12 @@ module.exports.data = {
           "recovered": 1,
           "confirmed": 33,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1,
+          "confirmed": 42,
+          "deaths": 0
         }
       ]
     },
@@ -64864,6 +65836,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 11,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 11,
           "deaths": 0
@@ -65265,6 +66243,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 69,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 82,
+          "deaths": 1
         }
       ]
     },
@@ -65663,6 +66647,12 @@ module.exports.data = {
           "recovered": 8,
           "confirmed": 275,
           "deaths": 11
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 11,
+          "confirmed": 345,
+          "deaths": 23
         }
       ]
     },
@@ -66058,6 +67048,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 2,
+          "confirmed": 8,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 2,
           "confirmed": 8,
           "deaths": 0
@@ -66459,6 +67455,12 @@ module.exports.data = {
           "recovered": 1,
           "confirmed": 3,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1,
+          "confirmed": 4,
+          "deaths": 0
         }
       ]
     },
@@ -66856,6 +67858,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 1,
           "confirmed": 28,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1,
+          "confirmed": 33,
           "deaths": 0
         }
       ]
@@ -67255,6 +68263,12 @@ module.exports.data = {
           "recovered": 2,
           "confirmed": 6,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 2,
+          "confirmed": 8,
+          "deaths": 1
         }
       ]
     },
@@ -67650,6 +68664,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 3,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 3,
           "deaths": 0
@@ -68051,6 +69071,12 @@ module.exports.data = {
           "recovered": 3,
           "confirmed": 7431,
           "deaths": 434
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 3,
+          "confirmed": 8603,
+          "deaths": 546
         }
       ]
     },
@@ -68448,6 +69474,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 27,
           "confirmed": 283,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 37,
+          "confirmed": 368,
           "deaths": 0
         }
       ]
@@ -68847,6 +69879,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 2,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 2,
+          "deaths": 1
         }
       ]
     },
@@ -69242,6 +70280,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 10,
+          "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 10,
           "deaths": 1
@@ -69643,6 +70687,12 @@ module.exports.data = {
           "recovered": 2,
           "confirmed": 65,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 3,
+          "confirmed": 70,
+          "deaths": 1
         }
       ]
     },
@@ -70040,6 +71090,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 3,
           "confirmed": 201,
+          "deaths": 3
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 3,
+          "confirmed": 219,
           "deaths": 3
         }
       ]
@@ -70439,6 +71495,12 @@ module.exports.data = {
           "recovered": 6,
           "confirmed": 3369,
           "deaths": 14
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 6,
+          "confirmed": 3755,
+          "deaths": 19
         }
       ]
     },
@@ -70836,6 +71898,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 23,
           "confirmed": 109,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 23,
+          "confirmed": 131,
           "deaths": 0
         }
       ]
@@ -71235,6 +72303,12 @@ module.exports.data = {
           "recovered": 21,
           "confirmed": 1201,
           "deaths": 9
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 23,
+          "confirmed": 1373,
+          "deaths": 11
         }
       ]
     },
@@ -71633,6 +72707,12 @@ module.exports.data = {
           "recovered": 2,
           "confirmed": 558,
           "deaths": 8
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 2,
+          "confirmed": 674,
+          "deaths": 9
         }
       ]
     },
@@ -72028,6 +73108,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 1,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 1,
           "deaths": 0
@@ -72429,6 +73515,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 41,
           "deaths": 3
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1,
+          "confirmed": 52,
+          "deaths": 3
         }
       ]
     },
@@ -72827,6 +73919,12 @@ module.exports.data = {
           "recovered": 14,
           "confirmed": 580,
           "deaths": 9
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 16,
+          "confirmed": 635,
+          "deaths": 11
         }
       ]
     },
@@ -73225,6 +74323,12 @@ module.exports.data = {
           "recovered": 28,
           "confirmed": 707,
           "deaths": 45
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 31,
+          "confirmed": 803,
+          "deaths": 54
         }
       ]
     },
@@ -73622,6 +74726,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 7,
           "confirmed": 1221,
+          "deaths": 16
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 7,
+          "confirmed": 1389,
           "deaths": 16
         }
       ]
@@ -74021,6 +75131,12 @@ module.exports.data = {
           "recovered": 43,
           "confirmed": 3544,
           "deaths": 60
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 43,
+          "confirmed": 4268,
+          "deaths": 76
         }
       ]
     },
@@ -74418,6 +75534,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 43,
           "confirmed": 549,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 43,
+          "confirmed": 562,
           "deaths": 0
         }
       ]
@@ -74817,6 +75939,12 @@ module.exports.data = {
           "recovered": 94,
           "confirmed": 1029,
           "deaths": 23
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 115,
+          "confirmed": 1292,
+          "deaths": 26
         }
       ]
     },
@@ -75215,6 +76343,12 @@ module.exports.data = {
           "recovered": 38,
           "confirmed": 840,
           "deaths": 3
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 45,
+          "confirmed": 1036,
+          "deaths": 4
         }
       ]
     },
@@ -75612,6 +76746,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 0,
           "confirmed": 50,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 54,
           "deaths": 0
         }
       ]
@@ -76011,6 +77151,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 3,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1,
+          "confirmed": 3,
+          "deaths": 0
         }
       ]
     },
@@ -76406,6 +77552,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 1,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 1,
           "deaths": 0
@@ -76807,6 +77959,12 @@ module.exports.data = {
           "recovered": 4,
           "confirmed": 208,
           "deaths": 21
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 4,
+          "confirmed": 223,
+          "deaths": 21
         }
       ]
     },
@@ -77204,6 +78362,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 33,
           "confirmed": 1012,
+          "deaths": 3
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 35,
+          "confirmed": 1104,
           "deaths": 3
         }
       ]
@@ -77603,6 +78767,12 @@ module.exports.data = {
           "recovered": 9,
           "confirmed": 105,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 11,
+          "confirmed": 119,
+          "deaths": 0
         }
       ]
     },
@@ -78001,6 +79171,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 384,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 457,
+          "deaths": 1
         }
       ]
     },
@@ -78396,6 +79572,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 7,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 7,
           "deaths": 0
@@ -78797,6 +79979,12 @@ module.exports.data = {
           "recovered": 172,
           "confirmed": 683,
           "deaths": 2
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 183,
+          "confirmed": 732,
+          "deaths": 2
         }
       ]
     },
@@ -79194,6 +80382,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 2,
           "confirmed": 226,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 2,
+          "confirmed": 269,
           "deaths": 0
         }
       ]
@@ -79593,6 +80787,12 @@ module.exports.data = {
           "recovered": 10,
           "confirmed": 562,
           "deaths": 6
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 10,
+          "confirmed": 632,
+          "deaths": 9
         }
       ]
     },
@@ -79990,6 +81190,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 0,
           "confirmed": 2,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 3,
           "deaths": 0
         }
       ]
@@ -80389,6 +81595,12 @@ module.exports.data = {
           "recovered": 12,
           "confirmed": 927,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 31,
+          "confirmed": 1170,
+          "deaths": 1
         }
       ]
     },
@@ -80787,6 +81999,12 @@ module.exports.data = {
           "recovered": 7015,
           "confirmed": 57786,
           "deaths": 4365
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 9357,
+          "confirmed": 65719,
+          "deaths": 5138
         }
       ]
     },
@@ -81182,6 +82400,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 7,
+          "confirmed": 106,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 7,
           "confirmed": 106,
           "deaths": 0
@@ -81583,6 +82807,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 3,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 3,
+          "deaths": 1
         }
       ]
     },
@@ -81978,6 +83208,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 8,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 8,
           "deaths": 0
@@ -82379,6 +83615,12 @@ module.exports.data = {
           "recovered": 16,
           "confirmed": 2840,
           "deaths": 77
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 16,
+          "confirmed": 3069,
+          "deaths": 105
         }
       ]
     },
@@ -82777,6 +84019,12 @@ module.exports.data = {
           "recovered": 131,
           "confirmed": 11811,
           "deaths": 191
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1530,
+          "confirmed": 12928,
+          "deaths": 231
         }
       ]
     },
@@ -83175,6 +84423,12 @@ module.exports.data = {
           "recovered": 29,
           "confirmed": 252,
           "deaths": 2
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 29,
+          "confirmed": 267,
+          "deaths": 2
         }
       ]
     },
@@ -83571,6 +84825,12 @@ module.exports.data = {
         {
           "date": "2020-03-26",
           "recovered": 0,
+          "confirmed": 13,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1,
           "confirmed": 13,
           "deaths": 0
         }
@@ -83971,6 +85231,12 @@ module.exports.data = {
           "recovered": 88,
           "confirmed": 1045,
           "deaths": 4
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 97,
+          "confirmed": 1136,
+          "deaths": 5
         }
       ]
     },
@@ -84369,6 +85635,12 @@ module.exports.data = {
           "recovered": 1,
           "confirmed": 23,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1,
+          "confirmed": 25,
+          "deaths": 1
         }
       ]
     },
@@ -84767,6 +86039,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 65,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1,
+          "confirmed": 66,
+          "deaths": 2
         }
       ]
     },
@@ -85164,6 +86442,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 2,
           "confirmed": 197,
+          "deaths": 6
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 2,
+          "confirmed": 227,
           "deaths": 6
         }
       ]
@@ -85563,6 +86847,12 @@ module.exports.data = {
           "recovered": 26,
           "confirmed": 3629,
           "deaths": 75
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 42,
+          "confirmed": 5698,
+          "deaths": 92
         }
       ]
     },
@@ -85960,6 +87250,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 0,
           "confirmed": 14,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 23,
           "deaths": 0
         }
       ]
@@ -86359,6 +87655,12 @@ module.exports.data = {
           "recovered": 1,
           "confirmed": 196,
           "deaths": 5
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 5,
+          "confirmed": 310,
+          "deaths": 5
         }
       ]
     },
@@ -86756,6 +88058,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 52,
           "confirmed": 333,
+          "deaths": 2
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 52,
+          "confirmed": 405,
           "deaths": 2
         }
       ]
@@ -87155,6 +88463,12 @@ module.exports.data = {
           "recovered": 2,
           "confirmed": 15,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 2,
+          "confirmed": 17,
+          "deaths": 0
         }
       ]
     },
@@ -87550,6 +88864,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 8,
+          "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 8,
           "deaths": 1
@@ -87951,6 +89271,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 66,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 88,
+          "deaths": 1
         }
       ]
     },
@@ -88348,6 +89674,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 13,
           "confirmed": 35,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 14,
+          "confirmed": 55,
           "deaths": 0
         }
       ]
@@ -88747,6 +90079,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 25,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 29,
+          "deaths": 0
         }
       ]
     },
@@ -89142,6 +90480,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 5,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 5,
           "deaths": 0
@@ -89543,6 +90887,12 @@ module.exports.data = {
           "recovered": 135,
           "confirmed": 11658,
           "deaths": 578
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 135,
+          "confirmed": 14543,
+          "deaths": 759
         }
       ]
     },
@@ -89940,6 +91290,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 0,
           "confirmed": 217,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 238,
           "deaths": 0
         }
       ]
@@ -90339,6 +91695,12 @@ module.exports.data = {
           "recovered": 681,
           "confirmed": 83836,
           "deaths": 1209
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 869,
+          "confirmed": 101657,
+          "deaths": 1581
         }
       ]
     },
@@ -90737,6 +92099,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 75,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 5,
+          "confirmed": 88,
+          "deaths": 1
         }
       ]
     },
@@ -91135,6 +92503,12 @@ module.exports.data = {
           "recovered": 15,
           "confirmed": 107,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 31,
+          "confirmed": 107,
+          "deaths": 1
         }
       ]
     },
@@ -91532,6 +92906,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 20,
           "confirmed": 153,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 20,
+          "confirmed": 163,
           "deaths": 0
         }
       ]
@@ -91931,6 +93311,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 16,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 22,
+          "deaths": 0
         }
       ]
     },
@@ -92329,6 +93715,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 3,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 5,
+          "deaths": 1
         }
       ]
     },
@@ -92724,6 +94116,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 0,
           "deaths": 1
@@ -93125,6 +94523,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 11,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 11,
+          "deaths": 0
         }
       ]
     },
@@ -93132,7 +94536,7 @@ module.exports.data = {
       "Country/Region": "Grenada",
       "Province/State": "",
       "Lat": "12.1165",
-      "Long": "-61.678999999999995",
+      "Long": "-61.679",
       "dates": [
         {
           "date": "2020-01-22",
@@ -93520,6 +94924,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 7,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 7,
           "deaths": 0
@@ -93921,6 +95331,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 7,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 7,
+          "deaths": 0
         }
       ]
     },
@@ -93928,7 +95344,7 @@ module.exports.data = {
       "Country/Region": "Syria",
       "Province/State": "",
       "Lat": "34.802075",
-      "Long": "38.996815000000005",
+      "Long": "38.99681500000001",
       "dates": [
         {
           "date": "2020-01-22",
@@ -94316,6 +95732,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 5,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 5,
           "deaths": 0
@@ -94717,6 +96139,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 1,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 1,
+          "deaths": 0
         }
       ]
     },
@@ -95112,6 +96540,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 2,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 2,
           "deaths": 0
@@ -95513,13 +96947,19 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 0,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
         }
       ]
     },
     "Laos": {
       "Country/Region": "Laos",
       "Province/State": "",
-      "Lat": "19.856270000000002",
+      "Lat": "19.85627",
       "Long": "102.495496",
       "dates": [
         {
@@ -95908,6 +97348,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 6,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 6,
           "deaths": 0
@@ -96309,6 +97755,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 1,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 1,
+          "deaths": 0
         }
       ]
     },
@@ -96706,6 +98158,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 17,
           "confirmed": 84,
+          "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 17,
+          "confirmed": 91,
           "deaths": 1
         }
       ]
@@ -97105,6 +98563,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 2,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 2,
+          "deaths": 0
         }
       ]
     },
@@ -97112,7 +98576,7 @@ module.exports.data = {
       "Country/Region": "Mali",
       "Province/State": "",
       "Lat": "17.570692",
-      "Long": "-3.9961660000000006",
+      "Long": "-3.996166000000001",
       "dates": [
         {
           "date": "2020-01-22",
@@ -97502,6 +98966,12 @@ module.exports.data = {
           "date": "2020-03-26",
           "recovered": 0,
           "confirmed": 4,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 11,
           "deaths": 0
         }
       ]
@@ -97898,6 +99368,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 2,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 2,
           "deaths": 0
@@ -98299,6 +99775,12 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 1,
           "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 1,
+          "deaths": 0
         }
       ]
     },
@@ -98694,6 +100176,12 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 3,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
           "recovered": 0,
           "confirmed": 3,
           "deaths": 0
@@ -99095,6 +100583,416 @@ module.exports.data = {
           "recovered": 0,
           "confirmed": 71,
           "deaths": 1
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 1,
+          "confirmed": 86,
+          "deaths": 1
+        }
+      ]
+    },
+    "Burma": {
+      "Country/Region": "Burma",
+      "Province/State": "",
+      "Lat": "21.9162",
+      "Long": "95.956",
+      "dates": [
+        {
+          "date": "2020-01-22",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-01-23",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-01-24",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-01-25",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-01-26",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-01-27",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-01-28",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-01-29",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-01-30",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-01-31",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-01",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-02",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-03",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-04",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-05",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-06",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-07",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-08",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-09",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-10",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-11",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-12",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-13",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-14",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-15",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-16",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-17",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-18",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-19",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-20",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-21",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-22",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-23",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-24",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-25",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-26",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-27",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-28",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-02-29",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-01",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-02",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-03",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-04",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-05",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-06",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-07",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-08",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-09",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-10",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-11",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-12",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-13",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-14",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-15",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-16",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-17",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-18",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-19",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-20",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-21",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-22",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-23",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-24",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-25",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-26",
+          "recovered": 0,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 0,
+          "confirmed": 8,
+          "deaths": 0
         }
       ]
     },
@@ -99491,6 +101389,12 @@ module.exports.data = {
         {
           "date": "2020-03-26",
           "recovered": 184,
+          "confirmed": 0,
+          "deaths": 0
+        },
+        {
+          "date": "2020-03-27",
+          "recovered": 256,
           "confirmed": 0,
           "deaths": 0
         }
