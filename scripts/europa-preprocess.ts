@@ -41,14 +41,14 @@ const sorted = rows.slice(1)
   }, {} as Record<string, string | number>)
 })
 .map(row => {
-  const dateString = row.Year + '-' + row.Month + '-' + row.Day + 'Z'
+  const dateString = row.year + '-' + row.month + '-' + row.day + 'Z'
   const date = new Date(dateString).toISOString().substring(0, 10)
   return {
-    'Country/Region': row['Countries and territories'] as string,
+    'Country/Region': row.countriesAndTerritories as string,
     'Province/State': '',
     date,
-    confirmed: row.Cases as number,
-    deaths: row.Deaths as number,
+    confirmed: row.cases as number,
+    deaths: row.deaths as number,
     recovered: 0,
   }
 })
