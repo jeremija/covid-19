@@ -1,6 +1,6 @@
 (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 module.exports.data = {
-  "date": "2020-03-28T16:04:52.638Z",
+  "date": "2020-03-28T18:05:05.732Z",
   "source": {
     "name": "ECDC's COVID-19 dataset",
     "link": "https://www.ecdc.europa.eu/en/publications-data/download-todays-data-geographic-distribution-covid-19-cases-worldwide"
@@ -1491,7 +1491,7 @@ module.exports.data = {
         {
           "date": "2020-03-28",
           "confirmed": 690,
-          "deaths": 117,
+          "deaths": 17,
           "recovered": 0
         }
       ],
@@ -2558,8 +2558,8 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
-          "confirmed": 2423,
-          "deaths": 8,
+          "confirmed": 2799,
+          "deaths": 11,
           "recovered": 0
         },
         {
@@ -30366,7 +30366,7 @@ module.exports.data = {
         },
         {
           "date": "2020-03-26",
-          "confirmed": 283,
+          "confirmed": 262,
           "deaths": 0,
           "recovered": 0
         },
@@ -45954,8 +45954,8 @@ module.exports.data = {
     },
     {
       "date": "2020-03-26",
-      "confirmed": 934466,
-      "deaths": 20981,
+      "confirmed": 935176,
+      "deaths": 20984,
       "recovered": 0
     },
     {
@@ -45967,7 +45967,7 @@ module.exports.data = {
     {
       "date": "2020-03-28",
       "confirmed": 1182550,
-      "deaths": 27083,
+      "deaths": 26983,
       "recovered": 0
     },
     {
