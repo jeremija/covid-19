@@ -1,4 +1,5 @@
-import { data as _data, Data, DataMap, DayStat, Region, StatType } from '../build/data'
+// import { data as _data } from '../build/data'
+import { Data, DataMap, DayStat, Region, StatType } from '../types/data'
 import { Chart } from 'chart.js'
 import palette from 'coloring-palette'
 
@@ -278,7 +279,7 @@ function CheckboxAndLabel(params: {
   return {node, checkbox}
 }
 
-function Form(allData: Data, chart: Chart) {
+function Form(dataSource: string, allData: Data, chart: Chart) {
   const dataByCountry = mergeByCountries(allData)
   let data = dataByCountry
   let selections: Record<string, boolean> = getSelections(true)
@@ -322,6 +323,24 @@ function Form(allData: Data, chart: Chart) {
     return { node, values }
   })()
   form.appendChild(selectedStats.node)
+
+  function serializeAndCopyToClipboard(e: Event) {
+    e.preventDefault()
+    const input = document.createElement('input')
+    input.value = location.origin + location.pathname + '#' + serialize()
+    app.appendChild(input)
+    input.select()
+    document.execCommand('copy')
+    app.removeChild(input)
+  }
+
+  app.appendChild(createDataSourceSelector(dataSource))
+
+  const share = document.createElement('a')
+  share.textContent = 'Copy link to clipboard'
+  share.addEventListener('click', serializeAndCopyToClipboard)
+  share.href = '#'
+  app.appendChild(share)
 
   function calcGrowth(last: number, secondToLast: number) {
     return ' (+' + ((last/secondToLast - 1) * 100).toFixed(0) + '%)'
@@ -415,7 +434,6 @@ function Form(allData: Data, chart: Chart) {
     updateSelectedStats(regions)
     chart.options.scales!.yAxes![0].type = scale
     chart.update()
-    location.hash = serialize()
   }
 
   const selectAllButton = document.createElement('button')
@@ -497,7 +515,6 @@ function Form(allData: Data, chart: Chart) {
   sortSelect.addEventListener('change', e => {
     sort = (e.target as HTMLSelectElement).value as Sort
     rebuildCheckboxes()
-    location.hash = serialize()
   })
   sortSelect.style.marginLeft = '0.25rem'
   buttons.appendChild(sortSelect)
@@ -530,10 +547,10 @@ function Form(allData: Data, chart: Chart) {
 
   form.appendChild(footer)
 
-
   interface Serialized {
     checkboxes: Record<string, boolean>
     cummulative: boolean
+    dataSource: string
     patientZero: boolean
     perCountry: boolean
     sort: Sort
@@ -543,6 +560,7 @@ function Form(allData: Data, chart: Chart) {
 
   function serialize(): string {
     const values: Serialized = {
+      dataSource: dataSource,
       checkboxes: checkboxes.filter(c => c.checked).reduce((obj, c) => {
         obj[c.id] = true
         return obj
@@ -601,7 +619,6 @@ function Form(allData: Data, chart: Chart) {
   const onLegendClick = chart.options.legend!.onClick!
   chart.options.legend!.onClick = function (e, legendLabelItem) {
     onLegendClick.call(this, e, legendLabelItem)
-    location.hash = serialize()
   }
 
   deserialize()
@@ -615,13 +632,59 @@ function Form(allData: Data, chart: Chart) {
     }
   })
   chart.update()
-  location.hash = serialize()
 
   return form
 }
 
-const {chart, canvas} = CreateChart(_data)
-app.appendChild(canvas)
-app.appendChild(Form(_data, chart))
-// chart.data.datasets = calculateCummulativeTimeSeries(_data.regions)
-// chart.update()
+const dataURLs =  {
+  csse: 'csse.json',
+  ecdc: 'ecdc.json',
+}
+
+function createDataSourceSelector(dataSource: string) {
+  const select = document.createElement('select')
+  const option1 = document.createElement('option')
+  option1.value = 'csse'
+  option1.textContent = 'John Hopkins University CSSE'
+  option1.selected = option1.value === dataSource
+  const option2 = document.createElement('option')
+  option2.value = 'ecdc'
+  option2.textContent = 'European CDC'
+  option2.selected = option2.value === dataSource
+
+  select.appendChild(option1)
+  select.appendChild(option2)
+
+  select.addEventListener('change', e => {
+    const value = (e.target as HTMLSelectElement).value as keyof typeof dataURLs
+    loadAndRender(value)
+  })
+
+  return select
+}
+
+async function loadAndRender(dataSource: keyof typeof dataURLs) {
+  app.innerHTML = 'Loading ' + dataSource
+
+  const result = await fetch(dataURLs[dataSource])
+  app.innerHTML = 'Processing...'
+  const data: Data = await result.json()
+  app.innerHTML = ''
+
+  const {chart, canvas} = CreateChart(data)
+  app.appendChild(canvas)
+  app.appendChild(Form(dataSource, data, chart))
+}
+
+function getDataSource() {
+  let dataSource: keyof typeof dataURLs = 'csse'
+  try {
+    const result = JSON.parse(decodeURIComponent(location.hash.substring(1)))
+    dataSource = result.dataSource
+  } catch (err) {
+  }
+  return dataSource || 'csse'
+}
+
+loadAndRender(getDataSource())
+.catch(err => app.innerHTML = 'An error occurred: ' + err.message)
