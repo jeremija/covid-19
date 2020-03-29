@@ -62,6 +62,19 @@ function CreateChart(data: Data) {
       datasets,
     },
     options: {
+      scales: {
+        xAxes: [{
+          gridLines: {
+            color: '#333',
+          },
+        }],
+        yAxes: [{
+          gridLines: {
+            color: '#333',
+            zeroLineColor: '#333',
+          },
+        }],
+      },
       // tooltips: {
       //   mode: 'x',
       // },
