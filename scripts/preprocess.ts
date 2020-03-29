@@ -4,9 +4,9 @@ import * as papaparse from 'papaparse'
 import { DayStat, Region, RegionMap, Data, DataMap, StatType } from '../types/data'
 
 const srcDir = path.join(__dirname, '..', 'data', 'csse_covid_19_data', 'csse_covid_19_time_series')
-const outDir = path.join(__dirname, '..', 'build', 'data')
+const outDir = path.join(__dirname, '..', 'build', 'web')
 fs.mkdirSync(outDir, {recursive: true})
-const outFile = path.join(outDir, 'index.js')
+const outFile = path.join(outDir, 'csse.json')
 
 const confirmedCSV =
   fs.readFileSync(path.join(srcDir, 'time_series_covid19_confirmed_global.csv'), 'utf8').trim()
@@ -139,7 +139,4 @@ mergeAllData('confirmed', confirmed, allData)
 mergeAllData('deaths', deaths, allData)
 mergeAllData('recovered', recovered, allData)
 
-fs.writeFileSync(outFile, "module.exports.data = " + JSON.stringify(toArrays(allData), null, "  "))
-
-const types = fs.readFileSync(path.join(__dirname, '..', 'types', 'data.d.ts'), 'utf8')
-fs.writeFileSync(path.join(__dirname, '..', 'build', 'data', 'index.d.ts'), types)
+fs.writeFileSync(outFile, JSON.stringify(toArrays(allData)))
