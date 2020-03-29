@@ -30,9 +30,6 @@ jobs:
         git submodule update --init --remote
         npm install
         npm run build
-        mkdir build-combined && mv build/web build-combined
-        npm run build:europa
-        mv build/web build-combined/europa
       env:
         CI: true
     - name: Deploy to gh-pages
@@ -40,4 +37,4 @@ jobs:
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BRANCH: gh-pages # The branch the action should deploy to.
-        FOLDER: build-combined # The folder the action should deploy.
+        FOLDER: build/web # The folder the action should deploy.
