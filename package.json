@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "build": "npm-run-all preprocess css:build ts:build js:build html:build",
-    "build:europa": "npm-run-all europa css:build ts:build js:build html:build",
-    "watch": "npm-run-all preprocess css:build ts:build --parallel *:watch",
+    "build": "npm-run-all data css:build ts:build js:build html:build",
+    "watch": "npm-run-all data css:build ts:build --parallel *:watch serve",
+    "serve": "http-server build/web",
     "ts:build": "tsc --project .",
     "ts:watch": "tsc --watch --preserveWatchOutput --project .",
     "js:build": "browserify lib/index.js -o build/web/index.js",
@@ -11,10 +11,13 @@
     "html:watch": "watch 'npm run html:build' views/",
     "css:build": "node-sass --output-style compressed sass/style.sass -o build/web",
     "css:watch": "node-sass --watch sass/style.sass -o build/web",
-    "preprocess": "ts-node scripts/preprocess.ts",
-    "europa": "npm-run-all europa:download europa:preprocess",
-    "europa:download": "node scripts/europa-download.js",
-    "europa:preprocess": "ts-node scripts/europa-preprocess.ts",
+    "data": "npm-run-all data:csse data:europa",
+    "data:csse": "npm-run-all data:csse:download data:csse:preprocess",
+    "data:csse:download": "git submodule update --init --remote",
+    "data:csse:preprocess": "ts-node scripts/preprocess.ts",
+    "data:europa": "npm-run-all data:europa:download data:europa:preprocess",
+    "data:europa:download": "node scripts/europa-download.js",
+    "data:europa:preprocess": "ts-node scripts/europa-preprocess.ts",
     "clean": "rimraf build/"
   },
   "devDependencies": {
@@ -29,6 +32,7 @@
     "chart.js": "^2.9.3",
     "coloring-palette": "^1.0.0",
     "ejs": "^3.0.1",
+    "http-server": "0.12.1",
     "luxon": "^1.22.0",
     "node-sass": "^4.13.1",
     "node-xlsx": "^0.15.0",

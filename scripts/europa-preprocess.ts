@@ -4,9 +4,9 @@ import { Data, RegionMap, Region, DayStat } from '../types/data'
 const xlsx = require('xlsx')
 
 const srcDir = path.join(__dirname, '..', 'build')
-const outDir = path.join(__dirname, '..', 'build', 'data')
+const outDir = path.join(__dirname, '..', 'build', 'web')
 fs.mkdirSync(outDir, {recursive: true})
-const outFile = path.join(outDir, 'index.js')
+const outFile = path.join(outDir, 'ecdc.json')
 
 const europaXLSX = fs.readFileSync(path.join(srcDir, 'europa.xlsx'))
 const result = xlsx.read(europaXLSX)
@@ -122,6 +122,4 @@ const allData: Data = {
   total: Object.keys(total).map(key => total[key]),
 }
 
-fs.writeFileSync(outFile, "module.exports.data = " + JSON.stringify(allData, null, "  "))
-const types = fs.readFileSync(path.join(__dirname, '..', 'types', 'data.d.ts'), 'utf8')
-fs.writeFileSync(path.join(__dirname, '..', 'build', 'data', 'index.d.ts'), types)
+fs.writeFileSync(outFile, JSON.stringify(allData))
