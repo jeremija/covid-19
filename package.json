@@ -29,7 +29,7 @@
     "@types/zepto": "^1.0.30",
     "babel-minify": "^0.5.1",
     "browserify": "^16.5.0",
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "coloring-palette": "^1.0.0",
     "ejs": "^3.0.1",
     "http-server": "0.12.1",
